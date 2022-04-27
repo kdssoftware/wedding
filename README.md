@@ -4,7 +4,7 @@
 - [x] Set up boiler
 - [x] Create Todo list
 - [x] Set up 'in construction' view
-- [ ] Deploy to karelentosia.be on vercel
+- [X] Deploy to karelentosia.be on vercel
 - [ ] Create Dev branch
 - [ ] Deploy to dev.karelentosia.be on vercel
 - [ ] Create styling without contents
