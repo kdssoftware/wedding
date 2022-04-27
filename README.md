@@ -3,7 +3,7 @@
 ## Todo (in order)
 - [x] Set up boiler
 - [x] Create Todo list
-- [ ] Set up 'in construction' view
+- [x] Set up 'in construction' view
 - [ ] Deploy to karelentosia.be on vercel
 - [ ] Create Dev branch
 - [ ] Deploy to dev.karelentosia.be on vercel
