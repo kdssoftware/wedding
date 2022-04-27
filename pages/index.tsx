@@ -1,15 +1,19 @@
 import type { NextPage } from 'next'
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+
 
 const Home: NextPage = () => {
   return (
-<div className="">
-	Hello world
-</div>
+    <>
+      <div className='text-white text-8xl text-center w-screen mt-10 absolute shadow-black [text-shadow:0_4px_8px_rgba(0,0,0,0.85)]' >
+        Tosia & Karel
+      </div>
+      <div className='grid place-items-center h-screen pb-72'>
+        <div className="text-6xl text-center text-white bg-amber-500 bg-opacity-60 rounded-lg p-6 ">
+            Our website is coming soon!
+        </div>
+      </div>
+    </>
   )
-
 }
 
 export default Home
