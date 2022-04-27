@@ -9,7 +9,7 @@ const Home: NextPage = () => {
       </div>
       <div className='grid place-items-center h-screen pb-72'>
         <div className="text-6xl text-center text-white bg-amber-500 bg-opacity-60 rounded-lg p-6 ">
-            Our website is coming soon!
+            Currently developing this website.
         </div>
       </div>
     </>

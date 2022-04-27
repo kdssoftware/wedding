@@ -5,7 +5,7 @@
 - [x] Create Todo list
 - [x] Set up 'in construction' view
 - [X] Deploy to karelentosia.be on vercel
-- [ ] Create Dev branch
+- [X] Create Dev branch
 - [ ] Deploy to dev.karelentosia.be on vercel
 - [ ] Create styling without contents
 - [ ] Create confirmation button
