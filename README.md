@@ -10,6 +10,6 @@
 - [ ] Create styling without contents
 - [ ] Create confirmation button
 - [ ] Create template for confirmation mail
-- [ ] Set up gmail with nodemailer
+- [X] Set up gmail with nodemailer
 - [ ] Change contents
 - [ ] rebase dev branch to master

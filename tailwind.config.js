@@ -9,8 +9,15 @@ module.exports = {
         'bg': "url('/img/bg.jpeg')",
       },
       fontFamily: {
-        'default': ['"Caveat"', 'cursive']
-      }
+        'default': ['"Caveat"', 'cursive'],
+        'datum': ['"Cormorant Garamond"', 'cursive'],
+        'soon': ['"Italianno"', 'cursive'],
+        'test': ['"League Script"', 'cursive'],
+        'head': ['"Ms Madi"', 'cursive'],
+      },
+      fontSize: {
+        'maxxl': '12rem',
+    },
     },
   },
   plugins: [],
