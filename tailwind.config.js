@@ -9,11 +9,11 @@ module.exports = {
         'bg': "url('/img/bg.jpeg')",
       },
       fontFamily: {
-        'default': ['"Caveat"', 'cursive'],
-        'datum': ['"Cormorant Garamond"', 'cursive'],
-        'soon': ['"Italianno"', 'cursive'],
-        'test': ['"League Script"', 'cursive'],
-        'head': ['"Ms Madi"', 'cursive'],
+        'font1': ['Caveat', 'cursive'],
+        'font2': ['Cormorant Garamond', 'cursive'],
+        'font3': ['Italianno', 'cursive'],
+        'font4': ['League Script', 'cursive'],
+        'font5': ['Ms Madi', 'cursive'],
       },
       fontSize: {
         'maxxl': '12rem',

@@ -12,7 +12,7 @@ const transporter = nodemailer.createTransport({
 
 export const sendMail =  async (to:string, subject: string, text : string, html: string ) : Promise<SMTPTransport.SentMessageInfo> => {
     let enveloppe = await transporter.sendMail({
-        from: '"Tosia & Karel" <karel@tosiaenkarel.be>', // sender address
+        from: '"Tosia & Karel" <'+process.env.NODEMAILER_HOST+'>', // sender address
         to,
         subject,
         text,

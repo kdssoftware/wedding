@@ -1,0 +1,10 @@
+{
+    "short_name": "T&K",
+    "name": "Tosie & Karel",
+    "start_url": "/",
+    "background_color": "#cacbcd",
+    "display": "standalone",
+    "scope": "/",
+    "theme_color": "#cacbcd",
+    "description": "Trouw website van Tosia & Karel"
+  }
