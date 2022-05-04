@@ -20,16 +20,13 @@ const Home: NextPage = () => {
   const setNewPage = async (page :string) => {
     await setMeasureDiv(viewPage(page))
     setTimeout(()=>{
-      console.log("setHeight as 0 and empty")
       setPage("")
       setHeight(0)
     },100)
     setTimeout(()=>{
-      console.log("set height as",heightDiv);
-      setHeight(heightDiv)
+      setHeight(250)
     },400)
     setTimeout(()=>{
-      console.log("set page to correct view")
       setPage(page)
     },450)
   }
@@ -38,8 +35,8 @@ const Home: NextPage = () => {
     e.preventDefault();
     await axios.post("/api/db/email",{email}).then(e=>{
       console.log(e)
+      setEmail("")
     })
-    console.log("great!")
   } 
 
   const viewPage = (page : string) : ReactElement => {
