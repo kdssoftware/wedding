@@ -1,6 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import {google, Auth} from 'googleapis'
-import secretKey from '../../../client_secret.json'
 
 type Data = {
   message: string|any[][]
@@ -17,6 +16,9 @@ export default function handler(
     if(!req.body.email){
         res.status(403).send({message:"Use the email body, you used: "+JSON.stringify(req.body)})
     }
+    const secretKey = JSON.parse( Buffer.from(process.env.CLIENT_SECRET??"e30=","base64").toString('ascii') )
+    console.log(secretKey);
+
     let jwtClient = new Auth.JWT( secretKey.client_email, undefined, secretKey.private_key, ['https://www.googleapis.com/auth/spreadsheets']);
     jwtClient.authorize( (err) => {
         if (err) {
