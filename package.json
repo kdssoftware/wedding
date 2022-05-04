@@ -9,13 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
     "axios": "^0.27.2",
->>>>>>> 43d6c89 (:card_file_box: add database using Google sheets)
->>>>>>> cba0887 (:card_file_box: add database using Google sheets)
     "googleapis": "^100.0.0",
     "next": "12.1.5",
     "nodemailer": "^6.7.3",
