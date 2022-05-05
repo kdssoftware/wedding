@@ -32,7 +32,7 @@ export default function handler(
     });
     
     let spreadsheetId = process.env.GOOGLE_SPREADSHEET_ID
-    let sheetRange = 'database!A1:A1000'
+    let sheetRange = 'database!A1:B1000'
     let sheets = google.sheets('v4');
 
     sheets.spreadsheets.values.append({
@@ -41,7 +41,7 @@ export default function handler(
         range: sheetRange,
         requestBody:{
             majorDimension: "ROWS",
-            values: [[req.body.email]]
+            values: [[req.body.email, new Date().toLocaleString('nl-BE') ]]
         },
         insertDataOption:"INSERT_ROWS",
         valueInputOption: "USER_ENTERED",
