@@ -15,6 +15,6 @@
 - [ ] rebase dev branch to master
 - [X] Get invited to vrijdag avond kampvuur
 - [ ] Attend Vrijdag Avond Kampvuur
-
+- [ ] Invite VAK to wedding
 
 
