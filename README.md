@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 1. vul e-mail in
 1. informatie word gevraagd van mail
     1. als informatie gevonden is:
@@ -8,3 +9,6 @@
             - vegetarisch eten
             - lactose vrij
     1. als informatie niet gevonden. bereik via whatsapp of mail.
+=======
+
+>>>>>>> 562f4a8 (Update README.md)
