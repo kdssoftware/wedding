@@ -14,6 +14,8 @@ const Home: NextPage = () => {
   const [page, setPage] = useState<string>("main")
   const [height, setHeight] = useState<number>()
   const [ref, { x, y, width, height:heightDiv, top, right, bottom, left }] = useMeasure<HTMLDivElement>();
+  const [emailIsProcessing,setEmailIsProcessing] = useState(false)
+  const [emailText,setEmailText] = useState("")
   const [email,setEmail] = useState<string>("")
 
 
@@ -33,9 +35,16 @@ const Home: NextPage = () => {
 
   const submitForm = async (e : FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setEmailIsProcessing(true);
     await axios.post("/api/db/email",{email}).then(e=>{
       console.log(e)
       setEmail("")
+      setEmailText("U bent ingeschreven, tot dan!");
+      setEmailIsProcessing(false)
+    }).catch(err=>{
+      console.log(err);
+      setEmailText("Er liep iets fouts, probeer het nog eens");
+      setEmailIsProcessing(false)
     })
   } 
 
@@ -45,16 +54,16 @@ const Home: NextPage = () => {
         return (
           <div className="text-center text-2xl " >
             <h2 className="text-5xl underline pb-3">RSVP</h2>
-              <form onSubmit={(e)=>{submitForm(e)}}  className='grid grid-cols-6 '>
+              <form onSubmit={(e)=>{submitForm(e)}}  className='flex mx-0 sm:mx-4 md:mx-8 lg:mx-12 justify-center content-center pt-5'>
                 <input onChange={(e)=>{
                   setEmail(e.target.value)
                 }} 
                 value={email}
-                type='email'   placeholder="Uw E-mail" className='bg-amber-400 p-2 opacity-80 rounded-l-lg w-full text-white placeholder-white col-span-5 focus:opacity-100'></input>
+                type='email' placeholder="Uw E-mail" className=' bg-amber-400 p-2 opacity-80 rounded-l-lg w-full md:w-1/2 xl:w-2/5  text-white placeholder-white col-span-5 focus:opacity-100'></input>
                 <div className='col-span-1 rounded-r-lg bg-amber-500 py-2 px-4 hover:bg-amber-400 transition cursor-pointer'>
                   <input type='submit' className='hidden' id='submit' required={true} />
                   <label htmlFor="submit" className='cursor-pointer' >
-                    <svg width="40" height="31" viewBox="0 0 40 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg className={emailIsProcessing?"animate-bounce":""} width="40" height="31" viewBox="0 0 40 31" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <rect x="1" y="1" width="38" height="28.1449" rx="4" stroke="white" strokeWidth="2"/>
                         <path d="M6.03653 5.76294L19.7102 18.2608" stroke="white" strokeWidth="2" strokeLinecap="round"/>
                         <path d="M33.6232 5.79709L19.7411 18.2458" stroke="white" strokeWidth="2" strokeLinecap="round"/>
@@ -64,6 +73,7 @@ const Home: NextPage = () => {
                   </label>
                 </div>
               </form>
+              <div className='text-center'>{emailText}</div>
           </div>
           )
       case "tips":
