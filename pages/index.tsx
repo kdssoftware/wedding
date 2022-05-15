@@ -452,7 +452,7 @@ const inschrijvingPersoonForm = (inschrijving:Inschrijving,inschrijvingIndex:num
         <nav className="h-12 bottom-0 bg-olive-300 bg-opacity-40 grid grid-cols-3 gap-2 justify-center text-center ">
           {
               [
-                  "info",
+                  "Info",
                   "RSVP",
                   "Tips"
               ].map( (title, key) => (
