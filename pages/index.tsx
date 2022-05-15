@@ -413,8 +413,17 @@ const inschrijvingPersoonForm = (inschrijving:Inschrijving,inschrijvingIndex:num
         )
       case "info":
         return (
-          <div className="text-center text-2xl " >
-              <h2 className="text-5xl underline pb-3">Meer info komt nog...</h2>
+          <div className="text-center text-2xl" >
+              <h2 className="text-5xl underline pb-3">Info</h2>
+              <ul>
+                <li className='list-disc list-item'>
+                  locaties: 
+                  <ul></ul>
+                </li>
+                <li className='list-items list-dics'>
+                  planning:
+                </li>
+              </ul>
           </div>
           )
       case "main":
@@ -454,9 +463,9 @@ const inschrijvingPersoonForm = (inschrijving:Inschrijving,inschrijvingIndex:num
         <nav className="h-12 bottom-0 bg-olive-300 bg-opacity-40 grid grid-cols-3 gap-2 justify-center text-center ">
           {
               [
-                  "Info",
+                  "info",
                   "RSVP",
-                  "Tips"
+                  "tips"
               ].map( (title, key) => (
                   <div className="text-4xl text-white cursor-pointer hover:scale-125 transition-all" onClick={()=>{
                     console.log(title);
