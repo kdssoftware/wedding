@@ -463,9 +463,9 @@ const inschrijvingPersoonForm = (inschrijving:Inschrijving,inschrijvingIndex:num
         <nav className="h-12 bottom-0 bg-olive-300 bg-opacity-40 grid grid-cols-3 gap-2 justify-center text-center ">
           {
               [
-                  "info",
+                  "Info",
                   "RSVP",
-                  "tips"
+                  "Tips"
               ].map( (title, key) => (
                   <div className="text-4xl text-white cursor-pointer hover:scale-125 transition-all" onClick={()=>{
                     console.log(title);
