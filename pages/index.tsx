@@ -135,7 +135,7 @@ const Home: NextPage = () => {
     <div className='col-span-1 rounded-r-lg bg-olive-500 py-2 px-4 hover:bg-olive-400 transition cursor-pointer'>
       <input type='submit' className='hidden' id='submit' required={true} />
       <label htmlFor="submit" className='cursor-pointer' >
-      <svg className={formOneLoading?"animate-pulse":""} width="40" height="31"  fill="white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M256 0C114.6 0 0 114.6 0 256c0 141.4 114.6 256 256 256s256-114.6 256-256C512 114.6 397.4 0 256 0zM406.6 278.6l-103.1 103.1c-12.5 12.5-32.75 12.5-45.25 0s-12.5-32.75 0-45.25L306.8 288H128C110.3 288 96 273.7 96 256s14.31-32 32-32h178.8l-49.38-49.38c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l103.1 103.1C414.6 241.3 416 251.1 416 256C416 260.9 414.6 270.7 406.6 278.6z"/></svg>
+      <svg className={formOneLoading?"animate-bounce":""} width="40" height="31"  fill="white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M256 0C114.6 0 0 114.6 0 256c0 141.4 114.6 256 256 256s256-114.6 256-256C512 114.6 397.4 0 256 0zM406.6 278.6l-103.1 103.1c-12.5 12.5-32.75 12.5-45.25 0s-12.5-32.75 0-45.25L306.8 288H128C110.3 288 96 273.7 96 256s14.31-32 32-32h178.8l-49.38-49.38c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l103.1 103.1C414.6 241.3 416 251.1 416 256C416 260.9 414.6 270.7 406.6 278.6z"/></svg>
       </label>
     </div>
   </form>
@@ -144,7 +144,7 @@ const Home: NextPage = () => {
 const inschrijvingPersoonForm = (inschrijving:Inschrijving,inschrijvingIndex:number) => {
   return(
   <div key={inschrijvingIndex} className="flex flex-col md:flex-row my-1 lg:my-5 w-full not-italic ">
-    <div className='flex flex-col w-full md:w-1/3 justify-start md:justify-center'>
+    <div className='flex flex-col w-full md:w-1/3 justify-start'>
       <label htmlFor={"voornaam_"+inschrijvingIndex} className='bold text-3xl text-left underline mb-3'>Naam:</label>
       <div className='flex flex-col md:flex-row w-full'>
         <input className='w-2/3 my-2 md:my-0 md:w-1/2 text-black text-xl rounded-lg px-2 mx-1' type="text" placeholder="Voornaam" id={"voornaam_"+inschrijvingIndex} value={inschrijvingen[inschrijvingIndex]?.voornaam} onChange={(e)=>{
@@ -442,7 +442,7 @@ const inschrijvingPersoonForm = (inschrijving:Inschrijving,inschrijvingIndex:num
     }
   }
 
-  const classes = "fixed bottom-14 w-full text-white bg-olive-700 bg-opacity-60 rounded-lg p-6 transition-all overflow-y-scroll"
+  const classes = "fixed bottom-14 w-full text-white bg-olive-700 bg-opacity-60 rounded-lg p-6 transition-all overflow-y-scroll overflow-x-hidden"
 
   return (
     <>
