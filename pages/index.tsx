@@ -146,8 +146,8 @@ const inschrijvingPersoonForm = (inschrijving:Inschrijving,inschrijvingIndex:num
   <div key={inschrijvingIndex} className="flex flex-col md:flex-row my-1 lg:my-5 w-full not-italic ">
     <div className='flex flex-col w-full md:w-1/3 justify-start'>
       <label htmlFor={"voornaam_"+inschrijvingIndex} className='bold text-3xl text-left underline mb-3'>Naam:</label>
-      <div className='flex flex-col md:flex-row w-full'>
-        <input className='w-2/3 my-2 md:my-0 md:w-1/2 text-black text-xl rounded-lg px-2 mx-1' type="text" placeholder="Voornaam" id={"voornaam_"+inschrijvingIndex} value={inschrijvingen[inschrijvingIndex]?.voornaam} onChange={(e)=>{
+      <div className='flex flex-col lg:my-4 md:flex-col lg:flex-row w-full'>
+        <input className='w-2/3 my-2 md:my-2 md:w-full text-black text-xl rounded-lg px-2 mx-1' type="text" placeholder="Voornaam" id={"voornaam_"+inschrijvingIndex} value={inschrijvingen[inschrijvingIndex]?.voornaam} onChange={(e)=>{
           setInschrijvingen(
             inschrijvingen.map((val,i)=>{
               if(i===inschrijvingIndex){
@@ -157,7 +157,7 @@ const inschrijvingPersoonForm = (inschrijving:Inschrijving,inschrijvingIndex:num
             })
           )
         }} />
-        <input className='w-2/3 my-2 md:my-0 md:w-1/2 text-black text-xl rounded-lg px-2 mx-1' type="text" placeholder="Achternaam" id={"achternaam_"+inschrijvingIndex} value={inschrijvingen[inschrijvingIndex]?.achternaam} onChange={(e)=>{
+        <input className='w-2/3 my-2 md:my-2 md:w-full text-black text-xl rounded-lg px-2 mx-1' type="text" placeholder="Achternaam" id={"achternaam_"+inschrijvingIndex} value={inschrijvingen[inschrijvingIndex]?.achternaam} onChange={(e)=>{
           setInschrijvingen(
             inschrijvingen.map((val,i)=>{
               if(i===inschrijvingIndex){
@@ -170,7 +170,7 @@ const inschrijvingPersoonForm = (inschrijving:Inschrijving,inschrijvingIndex:num
       </div>
     </div>
 
-    <div className='flex flex-row items-start justify-start md:justify-center my-2 md:my-0 mx-4 w-1/3'>
+    <div className='flex flex-row items-start justify-start md:justify-center my-2 md:my-0 lg:mx-4 w-1/3'>
     <fieldset className='mx-0 md:mx-4 flex-col flex w-1/6'>
       <legend className='bold text-3xl underline'>Receptie:</legend>
       <div className='ml-4'>
@@ -205,9 +205,11 @@ const inschrijvingPersoonForm = (inschrijving:Inschrijving,inschrijvingIndex:num
         </div>
       </div>
     </fieldset>
+    </div>
     {
       invite?.isAvond && (
-             <fieldset className='flex flex-col justify-start md:justify-center my-2 md:my-0 mx-4 w-1/3'>
+        <div className='flex flex-row items-start justify-start md:justify-center my-2 md:my-0 lg:mx-4 w-1/3'>
+        <fieldset className='mx-0 md:mx-4 flex-col flex w-1/6'>
               <legend className='bold text-3xl underline'>Avondfeest:</legend>
               <div className='ml-4'>
                 <div>
@@ -241,9 +243,9 @@ const inschrijvingPersoonForm = (inschrijving:Inschrijving,inschrijvingIndex:num
                 </div>
               </div>
             </fieldset>
+            </div>
       )
     }
-    </div>
     <div className='flex w-full md:w-1/3 justify-start md:justify-center md:border-0 border-b-2 border-b-olive-400'>
       <fieldset>
         <legend className='bold text-3xl underline'>Voorkeur eten:</legend>
