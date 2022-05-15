@@ -17,7 +17,7 @@ module.exports = {
         "olive-900":"#3B4435",
       },
       backgroundImage: {
-        'bg': "url('/img/bg.jpeg')",
+        'bg': "url('/img/bg-min.jpeg')",
       },
       fontFamily: {
         'font1': ['Caveat', 'cursive'],

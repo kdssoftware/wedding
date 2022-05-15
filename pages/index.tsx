@@ -348,7 +348,10 @@ const inschrijvingPersoonForm = (inschrijving:Inschrijving,inschrijvingIndex:num
         e.preventDefault()
         submitFormulier1()
 
-      }} className='bg-olive-800 opacity-85 transition hover:bg-olive-900 hover:opacity-95 w-1/2'>Inschrijven</button>
+      }} className='bg-olive-400 p-2 hover:opacity-100 transition opacity-90 rounded-lg w-full md:w-1/2 xl:w-2/5  text-white placeholder-white col-span-5 focus:opacity-100 flex flex-row justify-center'>
+        <span className='mr-3'>Inschrijven</span>
+        {emailSvg}
+      </button>
     </div>
   </form>
  )
