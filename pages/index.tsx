@@ -15,7 +15,7 @@ const Home: NextPage = () => {
 </svg>)
 
   const [page, setPage] = useState<string>("main")
-  const [height, setHeight] = useState<number>()
+  const [height, setHeight] = useState<number|string>()
   const [formStep,setFormStep] = useState<number>(0) //0: not started yet. 1: email put in, can input invitations. 2: send invitations
   const [inschrijvingen,setInschrijvingen] = useState<Inschrijving[]>([])
   const [formOneLoading,  setFormOneLoading] = useState(false);
@@ -76,8 +76,7 @@ const Home: NextPage = () => {
       }
       setInschrijvingen(inschrijvingenNew)
       setInschrijvingenCache(inschrijvingenNew)
-
-      setHeight(250+(150*invite.personen));
+      setHeight("95%");
       setInvite(invite);
       setFormStep(1)
       setEmailIsFound(true); 
@@ -145,10 +144,10 @@ const Home: NextPage = () => {
 const inschrijvingPersoonForm = (inschrijving:Inschrijving,inschrijvingIndex:number) => {
   return(
   <div key={inschrijvingIndex} className="flex flex-col md:flex-row my-1 lg:my-5 w-full not-italic ">
-    <div className='flex flex-col w-1/3'>
+    <div className='flex flex-col w-full md:w-1/3 justify-start md:justify-center'>
       <label htmlFor={"voornaam_"+inschrijvingIndex} className='bold text-3xl text-left underline mb-3'>Naam:</label>
-      <div className='flex flex-row w-full'>
-        <input className='w-1/2 text-black text-xl rounded-lg px-2 mx-1' type="text" placeholder="Voornaam" id={"voornaam_"+inschrijvingIndex} value={inschrijvingen[inschrijvingIndex]?.voornaam} onChange={(e)=>{
+      <div className='flex flex-col md:flex-row w-full'>
+        <input className='w-2/3 my-2 md:my-0 md:w-1/2 text-black text-xl rounded-lg px-2 mx-1' type="text" placeholder="Voornaam" id={"voornaam_"+inschrijvingIndex} value={inschrijvingen[inschrijvingIndex]?.voornaam} onChange={(e)=>{
           setInschrijvingen(
             inschrijvingen.map((val,i)=>{
               if(i===inschrijvingIndex){
@@ -158,7 +157,7 @@ const inschrijvingPersoonForm = (inschrijving:Inschrijving,inschrijvingIndex:num
             })
           )
         }} />
-        <input className='w-1/2 text-black text-xl rounded-lg px-2 mx-1' type="text" placeholder="Achternaam" id={"achternaam_"+inschrijvingIndex} value={inschrijvingen[inschrijvingIndex]?.achternaam} onChange={(e)=>{
+        <input className='w-2/3 my-2 md:my-0 md:w-1/2 text-black text-xl rounded-lg px-2 mx-1' type="text" placeholder="Achternaam" id={"achternaam_"+inschrijvingIndex} value={inschrijvingen[inschrijvingIndex]?.achternaam} onChange={(e)=>{
           setInschrijvingen(
             inschrijvingen.map((val,i)=>{
               if(i===inschrijvingIndex){
@@ -171,8 +170,8 @@ const inschrijvingPersoonForm = (inschrijving:Inschrijving,inschrijvingIndex:num
       </div>
     </div>
 
-    <div className='flex flex-row items-start justify-center mx-4 w-1/3'>
-    <fieldset className='mx-4 flex-col flex w-1/6'>
+    <div className='flex flex-row items-start justify-start md:justify-center my-2 md:my-0 mx-4 w-1/3'>
+    <fieldset className='mx-0 md:mx-4 flex-col flex w-1/6'>
       <legend className='bold text-3xl underline'>Receptie:</legend>
       <div className='ml-4'>
         <div>
@@ -208,7 +207,7 @@ const inschrijvingPersoonForm = (inschrijving:Inschrijving,inschrijvingIndex:num
     </fieldset>
     {
       invite?.isAvond && (
-             <fieldset className='flex w-1/6 flex-col'>
+             <fieldset className='flex flex-col justify-start md:justify-center my-2 md:my-0 mx-4 w-1/3'>
               <legend className='bold text-3xl underline'>Avondfeest:</legend>
               <div className='ml-4'>
                 <div>
@@ -245,7 +244,7 @@ const inschrijvingPersoonForm = (inschrijving:Inschrijving,inschrijvingIndex:num
       )
     }
     </div>
-    <div className='flex w-1/3 justify-center'>
+    <div className='flex w-full md:w-1/3 justify-start md:justify-center md:border-0 border-b-2 border-b-olive-400'>
       <fieldset>
         <legend className='bold text-3xl underline'>Voorkeur eten:</legend>
         <div>
@@ -316,7 +315,7 @@ const inschrijvingPersoonForm = (inschrijving:Inschrijving,inschrijvingIndex:num
 }
 
  const formulier1 = (
-  <form onSubmit={(e)=>{submitFormulier1()}}  className='flex flex-col mx-0 sm:mx-4 md:mx-8 lg:mx-12 justify-center content-center pt-5'>
+  <form onSubmit={(e)=>{submitFormulier1()}}  className='flex flex-col w-full mx-0 sm:mx-4 md:mx-8 lg:mx-12 justify-center content-center pt-5'>
     {
       emailIsFound && false && 
       <div className='flex flex-col items-center'>
@@ -348,7 +347,7 @@ const inschrijvingPersoonForm = (inschrijving:Inschrijving,inschrijvingIndex:num
         e.preventDefault()
         submitFormulier1()
 
-      }} className='bg-olive-400 p-2 hover:opacity-100 transition opacity-90 rounded-lg w-full md:w-1/2 xl:w-2/5  text-white placeholder-white col-span-5 focus:opacity-100 flex flex-row justify-center'>
+      }} className='bg-olive-400 p-2 hover:opacity-100 transition opacity-90 rounded-lg w-9/10 md:w-1/2 xl:w-2/5  text-white placeholder-white col-span-5 focus:opacity-100 flex flex-row justify-center'>
         <span className='mr-3'>Inschrijven</span>
         {emailSvg}
       </button>
@@ -434,7 +433,7 @@ const inschrijvingPersoonForm = (inschrijving:Inschrijving,inschrijvingIndex:num
     }
   }
 
-  const classes = "w-full text-white bg-olive-700 bg-opacity-60 rounded-lg p-6 transition-all"
+  const classes = "fixed bottom-14 w-full text-white bg-olive-700 bg-opacity-60 rounded-lg p-6 transition-all overflow-y-scroll"
 
   return (
     <>
