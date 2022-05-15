@@ -146,9 +146,9 @@ const inschrijvingPersoonForm = (inschrijving:Inschrijving,inschrijvingIndex:num
   return(
   <div key={inschrijvingIndex} className="flex flex-col md:flex-row my-1 lg:my-5 w-full not-italic ">
     <div className='flex flex-col w-1/3'>
-      <label htmlFor="voornaam" className='bold text-3xl text-left underline mb-3'>Naam:</label>
+      <label htmlFor={"voornaam_"+inschrijvingIndex} className='bold text-3xl text-left underline mb-3'>Naam:</label>
       <div className='flex flex-row w-full'>
-        <input className='w-1/2 text-black text-xl rounded-lg px-2 mx-1' type="text" placeholder="Voornaam" id="voornaam" value={inschrijvingen[inschrijvingIndex]?.voornaam} onChange={(e)=>{
+        <input className='w-1/2 text-black text-xl rounded-lg px-2 mx-1' type="text" placeholder="Voornaam" id={"voornaam_"+inschrijvingIndex} value={inschrijvingen[inschrijvingIndex]?.voornaam} onChange={(e)=>{
           setInschrijvingen(
             inschrijvingen.map((val,i)=>{
               if(i===inschrijvingIndex){
@@ -158,7 +158,7 @@ const inschrijvingPersoonForm = (inschrijving:Inschrijving,inschrijvingIndex:num
             })
           )
         }} />
-        <input className='w-1/2 text-black text-xl rounded-lg px-2 mx-1' type="text" placeholder="Achternaam" id="achternaam" value={inschrijvingen[inschrijvingIndex]?.achternaam} onChange={(e)=>{
+        <input className='w-1/2 text-black text-xl rounded-lg px-2 mx-1' type="text" placeholder="Achternaam" id={"achternaam_"+inschrijvingIndex} value={inschrijvingen[inschrijvingIndex]?.achternaam} onChange={(e)=>{
           setInschrijvingen(
             inschrijvingen.map((val,i)=>{
               if(i===inschrijvingIndex){
@@ -176,9 +176,9 @@ const inschrijvingPersoonForm = (inschrijving:Inschrijving,inschrijvingIndex:num
       <legend className='bold text-3xl underline'>Receptie:</legend>
       <div className='ml-4'>
         <div>
-          <label htmlFor="receptie_ja" className='flex flex-row items-center justify-start '>
+          <label htmlFor={"receptie_ja_"+inschrijvingIndex} className='flex flex-row items-center justify-start '>
             <span>Ja:</span>
-        <input className='ml-2' type="radio" name="receptie" id="receptie_ja"  value={inschrijvingen[inschrijvingIndex]?.receptie?"1":"0"} onChange={(e)=>{
+        <input className='ml-2' type="radio" name="receptie" id={"receptie_ja_"+inschrijvingIndex}  value={inschrijvingen[inschrijvingIndex]?.receptie?"1":"0"} onChange={(e)=>{
           setInschrijvingen(
             inschrijvingen.map((val,i)=>{
               if(i===inschrijvingIndex){
@@ -190,7 +190,7 @@ const inschrijvingPersoonForm = (inschrijving:Inschrijving,inschrijvingIndex:num
         }} /></label>
         </div>
         <div>
-          <label  htmlFor="receptie_nee" className='flex flex-row items-center justify-start '>
+          <label  htmlFor={"receptie_nee_"+inschrijvingIndex} className='flex flex-row items-center justify-start '>
             <span>Nee:</span>
           <input className='ml-2' type="radio" name="receptie" id="receptie_nee"  value={inschrijvingen[inschrijvingIndex]?.receptie?"1":"0"} onChange={(e)=>{
             setInschrijvingen(
@@ -212,9 +212,9 @@ const inschrijvingPersoonForm = (inschrijving:Inschrijving,inschrijvingIndex:num
               <legend className='bold text-3xl underline'>Avondfeest:</legend>
               <div className='ml-4'>
                 <div>
-                  <label htmlFor="avond_ja" className='flex flex-row items-center justify-start '>
+                  <label htmlFor={"avond_ja_"+inschrijvingIndex} className='flex flex-row items-center justify-start '>
                     <span>Ja:</span>
-                <input className='ml-2' type="radio" name="avond" id="avond_ja"  value={inschrijvingen[inschrijvingIndex]?.avond?"1":"0"} onChange={(e)=>{
+                <input className='ml-2' type="radio" name="avond" id={"avond_ja_"+inschrijvingIndex}  value={inschrijvingen[inschrijvingIndex]?.avond?"1":"0"} onChange={(e)=>{
                   setInschrijvingen(
                     inschrijvingen.map((val,i)=>{
                       if(i===inschrijvingIndex){
@@ -226,9 +226,9 @@ const inschrijvingPersoonForm = (inschrijving:Inschrijving,inschrijvingIndex:num
                 }} /></label>
                 </div>
                 <div>
-                  <label htmlFor="avond_nee" className='flex flex-row items-center justify-start'>
+                  <label htmlFor={"avond_nee_"+inschrijvingIndex} className='flex flex-row items-center justify-start'>
                     <span>Nee:</span>
-                  <input className='ml-2' type="radio" name="avond" id="avond_nee"  value={inschrijvingen[inschrijvingIndex]?.receptie?"1":"0"} onChange={(e)=>{
+                  <input className='ml-2' type="radio" name="avond" id={"avond_nee_"+inschrijvingIndex}  value={inschrijvingen[inschrijvingIndex]?.receptie?"1":"0"} onChange={(e)=>{
                     setInschrijvingen(
                       inschrijvingen.map((val,i)=>{
                         if(i===inschrijvingIndex){
@@ -249,9 +249,9 @@ const inschrijvingPersoonForm = (inschrijving:Inschrijving,inschrijvingIndex:num
       <fieldset>
         <legend className='bold text-3xl underline'>Voorkeur eten:</legend>
         <div>
-        <label htmlFor="vegetarisch" className='flex flex-row items-center justify-between '>
+        <label htmlFor={"vegetarisch_"+inschrijvingIndex} className='flex flex-row items-center justify-between '>
           <span>Vegetarisch:</span>
-        <input type="checkbox" id="vegetarisch" checked={inschrijvingen[inschrijvingIndex]?.vegetarisch} onChange={(e)=>{
+        <input type="checkbox" id={"vegetarisch_"+inschrijvingIndex} checked={inschrijvingen[inschrijvingIndex]?.vegetarisch} onChange={(e)=>{
               setInschrijvingen(
                 inschrijvingen.map((val,i)=>{
                   if(i===inschrijvingIndex){
@@ -265,9 +265,9 @@ const inschrijvingPersoonForm = (inschrijving:Inschrijving,inschrijvingIndex:num
         </div>
               
         <div>
-        <label htmlFor="vegan" className='flex flex-row items-center justify-between '>
+        <label htmlFor={"vegan_"+inschrijvingIndex} className='flex flex-row items-center justify-between '>
           <span>Vegan:</span>
-          <input type="checkbox" id="vegan" checked={inschrijvingen[inschrijvingIndex]?.vegan} onChange={(e)=>{
+          <input type="checkbox" id={"vegan_"+inschrijvingIndex} checked={inschrijvingen[inschrijvingIndex]?.vegan} onChange={(e)=>{
                 setInschrijvingen(
                   inschrijvingen.map((val,i)=>{
                     if(i===inschrijvingIndex){
@@ -280,9 +280,9 @@ const inschrijvingPersoonForm = (inschrijving:Inschrijving,inschrijvingIndex:num
           </label>
         </div>
         <div>
-        <label htmlFor="lactoseVrij" className='flex flex-row items-center justify-between '>
+        <label htmlFor={"lactoseVrij_"+inschrijvingIndex} className='flex flex-row items-center justify-between '>
           <span>Lactose-vrij:</span>
-      <input type="checkbox" id="lactoseVrij" checked={inschrijvingen[inschrijvingIndex]?.lactoseVrij} onChange={(e)=>{
+      <input type="checkbox" id={"lactoseVrij_"+inschrijvingIndex} checked={inschrijvingen[inschrijvingIndex]?.lactoseVrij} onChange={(e)=>{
             setInschrijvingen(
               inschrijvingen.map((val,i)=>{
                 if(i===inschrijvingIndex){
@@ -295,9 +295,9 @@ const inschrijvingPersoonForm = (inschrijving:Inschrijving,inschrijvingIndex:num
           </label>
         </div>
         <div>
-        <label htmlFor="geenvookeur" className='flex flex-row items-center justify-between '>
+        <label htmlFor={"geenvookeur_"+inschrijvingIndex} className='flex flex-row items-center justify-between '>
           <span>Geen voorkeur:</span>
-      <input type="checkbox" id="geenvookeur" checked={inschrijvingen[inschrijvingIndex]?.geenVoorkeur} onChange={(e)=>{
+      <input type="checkbox" id={"geenvookeur_"+inschrijvingIndex} checked={inschrijvingen[inschrijvingIndex]?.geenVoorkeur} onChange={(e)=>{
             setInschrijvingen(
               inschrijvingen.map((val,i)=>{
                 if(i===inschrijvingIndex){
