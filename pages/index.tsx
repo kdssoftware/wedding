@@ -42,7 +42,7 @@ const Home: NextPage = () => {
       setHeight(0)
     },100)
     setTimeout(()=>{
-      setHeight(250)
+      setHeight(400)
     },400)
     setTimeout(()=>{
       setPage(page)
@@ -405,9 +405,10 @@ const inschrijvingPersoonForm = (inschrijving:Inschrijving,inschrijvingIndex:num
         return (
           <div className="text-center text-2xl" >
               <p className="text-4xl underline pb-3">Handige tips voor in Leuven:</p>
-              <ul className="list-inside">
+              <ul className="text-left md:text-center list-inside">
                   <li className="list-item list-disc">Bij de receptie heb je toegang tot het hele museum! geniet ervan</li>
                   <li className="list-item list-disc">Een hoed of zonnebril aan te raden op het dakterras van Museum M</li>
+                  <li className='list-item list-disc'>Bekijk de tips hier regelmatig, voor updates</li>
               </ul>
           </div>
         )
@@ -415,13 +416,40 @@ const inschrijvingPersoonForm = (inschrijving:Inschrijving,inschrijvingIndex:num
         return (
           <div className="text-center text-2xl" >
               <h2 className="text-5xl underline pb-3">Info</h2>
-              <ul>
-                <li className='list-disc list-item'>
-                  locaties: 
-                  <ul></ul>
+              <ul className='flex flex-col items-start md:items-center list-outside justify-start md:justify-center pl-6'>  
+                <li className='list-disc md:list-none list-item text-left md:text-center'>
+                  <span className='underline text-3xl'> Locaties : </span>
+                  <ul className='list-inside '>
+                    <li className='list-disc md:list-none  list-item'>
+                      Receptie in het <a className='bold text-olive-200 underline' href="https://goo.gl/maps/uGpFJjHqcsgtHUKG8">Museum M</a>
+                      </li>
+                    <li className='list-disc md:list-none list-item'>
+                    AvondFeest in het <a className='bold text-olive-200 underline' href="https://goo.gl/maps/aqc6oGPdmJRw4mvSA">Huis van Mihr</a>
+                    </li>
+                  </ul>
                 </li>
-                <li className='list-items list-dics'>
-                  planning:
+                <li className='list-disc md:list-none  list-item text-left md:text-center'>
+                <span className='underline text-3xl'> Planning : </span>
+                  <ul className='list-inside '>
+                    <li className='list-disc md:list-none  list-item'>
+                    <span className='bold not-italic text-2xl text-olive-200'>12h15 :</span> Trouwceremonie voor dichtste familie
+                    </li>
+                    <li className='list-disc md:list-none list-item'>
+                    <span className='bold not-italic text-2xl text-olive-200'>12h30 :</span> Verwelkoming aan het stadhuis
+                    </li>
+                    <li className='list-disc md:list-none  list-item'>
+                    <span className='bold not-italic text-2xl text-olive-200'>12h30 :</span> Verwelkoming aan het stadhuis
+                    </li>
+                    <li className='list-disc md:list-none list-item'>
+                    <span className='bold not-italic text-2xl text-olive-200'>Nadien :</span> Wandeling naar Museum M
+                    </li>
+                    <li className='list-disc md:list-none  list-item'>
+                    <span className='bold not-italic text-2xl text-olive-200'>13h15 - 15h15 :</span> Receptie Museum M
+                    </li>
+                    <li className='list-disc md:list-none list-item'>
+                    <span className='bold not-italic text-2xl text-olive-200'>18h00 :</span> Avondfeest voor uitnodigden
+                    </li>
+                  </ul>
                 </li>
               </ul>
           </div>
