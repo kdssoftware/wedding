@@ -5,7 +5,7 @@ import Script from 'next/script'
 import Link from 'next/link'
 function Wedding({ Component, pageProps }: AppProps) {
   return (
-  <div className="font-default bg-bg bg-cover bg-center w-screen h-screen overflow-hidden" style={{backgroundColor:"#cacbcd"}}>
+  <div className="font-default text-white bg-bg bg-cover bg-center w-screen h-screen overflow-hidden" style={{backgroundColor:"#cacbcd"}}>
     <Component {...pageProps} />
   </div>
   )
