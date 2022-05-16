@@ -11,8 +11,6 @@ import { useRouter } from 'next/router'
 const Home: NextPage = () => {
   const router = useRouter()
   const { t } = useTranslation('common');
-  console.log(t("Ja"),t("test"))
-
   const emailSvg = ( <svg  width="40" height="31" viewBox="0 0 40 31" fill="none" xmlns="http://www.w3.org/2000/svg">
   <rect x="1" y="1" width="38" height="28.1449" rx="4" stroke="white" strokeWidth="2"/>
   <path d="M6.03653 5.76294L19.7102 18.2608" stroke="white" strokeWidth="2" strokeLinecap="round"/>
@@ -183,7 +181,7 @@ const inschrijvingPersoonForm = (inschrijving:Inschrijving,inschrijvingIndex:num
       <div className='ml-4'>
         <div>
           <label htmlFor={"receptie_ja_"+inschrijvingIndex} className='flex flex-row items-center justify-start '>
-            <span>{t("Ja")}</span>
+            <span>{t("ja")}</span>
         <input className='ml-2' type="radio" name="receptie" id={"receptie_ja_"+inschrijvingIndex}  value={inschrijvingen[inschrijvingIndex]?.receptie?"1":"0"} onChange={(e)=>{
           setInschrijvingen(
             inschrijvingen.map((val,i)=>{
@@ -197,7 +195,7 @@ const inschrijvingPersoonForm = (inschrijving:Inschrijving,inschrijvingIndex:num
         </div>
         <div>
           <label  htmlFor={"receptie_nee_"+inschrijvingIndex} className='flex flex-row items-center justify-start '>
-            <span>{t("Nee")}</span>
+            <span>{t("nee")}</span>
           <input className='ml-2' type="radio" name="receptie" id="receptie_nee"  value={inschrijvingen[inschrijvingIndex]?.receptie?"1":"0"} onChange={(e)=>{
             setInschrijvingen(
               inschrijvingen.map((val,i)=>{
@@ -210,12 +208,6 @@ const inschrijvingPersoonForm = (inschrijving:Inschrijving,inschrijvingIndex:num
           }} />
         </label>
         </div>
-        <div className='grid place-items-center h-screen pb-72'>
-          <div className="text-6xl text-center text-white bg-amber-500 bg-opacity-60 rounded-lg p-6 ">
-              Our website is coming soon!
-          </div>
-        </div>
-        <div></div>
       </div>
     </fieldset>
     </div>
@@ -241,7 +233,7 @@ const inschrijvingPersoonForm = (inschrijving:Inschrijving,inschrijvingIndex:num
                 </div>
                 <div>
                   <label htmlFor={"avond_nee_"+inschrijvingIndex} className='flex flex-row items-center justify-start'>
-                    <span>{t("Nee")}</span>
+                    <span>{t("nee")}</span>
                   <input className='ml-2' type="radio" name="avond" id={"avond_nee_"+inschrijvingIndex}  value={inschrijvingen[inschrijvingIndex]?.receptie?"1":"0"} onChange={(e)=>{
                     setInschrijvingen(
                       inschrijvingen.map((val,i)=>{
@@ -264,7 +256,7 @@ const inschrijvingPersoonForm = (inschrijving:Inschrijving,inschrijvingIndex:num
         <legend className='bold text-3xl underline'>{t("Voorkeur eten")}</legend>
         <div>
         <label htmlFor={"vegetarisch_"+inschrijvingIndex} className='flex flex-row items-center justify-between '>
-          <span>{t("Vegetarisch")}</span>
+          <span>{t("vegetarisch")}</span>
         <input type="checkbox" id={"vegetarisch_"+inschrijvingIndex} checked={inschrijvingen[inschrijvingIndex]?.vegetarisch} onChange={(e)=>{
               setInschrijvingen(
                 inschrijvingen.map((val,i)=>{
@@ -280,7 +272,7 @@ const inschrijvingPersoonForm = (inschrijving:Inschrijving,inschrijvingIndex:num
               
         <div>
         <label htmlFor={"vegan_"+inschrijvingIndex} className='flex flex-row items-center justify-between '>
-          <span>{t("Vegan")}</span>
+          <span>{t("vegan")}</span>
           <input type="checkbox" id={"vegan_"+inschrijvingIndex} checked={inschrijvingen[inschrijvingIndex]?.vegan} onChange={(e)=>{
                 setInschrijvingen(
                   inschrijvingen.map((val,i)=>{
@@ -295,7 +287,7 @@ const inschrijvingPersoonForm = (inschrijving:Inschrijving,inschrijvingIndex:num
         </div>
         <div>
         <label htmlFor={"lactoseVrij_"+inschrijvingIndex} className='flex flex-row items-center justify-between '>
-          <span>{t("Lactose-vrij")}</span>
+          <span>{t("lactose vrij")}</span>
       <input type="checkbox" id={"lactoseVrij_"+inschrijvingIndex} checked={inschrijvingen[inschrijvingIndex]?.lactoseVrij} onChange={(e)=>{
             setInschrijvingen(
               inschrijvingen.map((val,i)=>{
@@ -310,7 +302,7 @@ const inschrijvingPersoonForm = (inschrijving:Inschrijving,inschrijvingIndex:num
         </div>
         <div>
         <label htmlFor={"geenvookeur_"+inschrijvingIndex} className='flex flex-row items-center justify-between '>
-          <span>{t("Geen voorkeur")}</span>
+          <span>{t("geen voorkeur")}</span>
       <input type="checkbox" id={"geenvookeur_"+inschrijvingIndex} checked={inschrijvingen[inschrijvingIndex]?.geenVoorkeur} onChange={(e)=>{
             setInschrijvingen(
               inschrijvingen.map((val,i)=>{
@@ -410,6 +402,11 @@ const inschrijvingPersoonForm = (inschrijving:Inschrijving,inschrijvingIndex:num
             <h2 className="text-5xl underline pb-3">
               {showRSVP && t("RSVP")}
             </h2>
+              {!showRSVP && 
+                <div className='text-2xl italic '>
+                  {t("Klopt het aantal personen niet? stuur maar een berichtje naar")} <a className='text-olive-200 underline not-italic' href="mailto:karel@karel.be?subject=Inschrijven trouw">karel@karel.be</a>
+                </div>
+              }
               {
                 showFormulier()
               }

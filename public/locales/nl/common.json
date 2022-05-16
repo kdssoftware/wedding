@@ -2,13 +2,14 @@
     "Er liep iets fouts, probeer het nog eens":"Er liep iets fouts, probeer het nog eens",
     "Naam":"Naam",
     "Receptie":"Receptie",
-    "Ja":"Ja",
-    "Nee":"Nee",
+    "ja":"yes",
+    "nee":"no",
     "Avondfeest":"Avondfeest",
     "Voorkeur eten":"Voorkeur eten",
-    "Vegetarisch":"Vegetarisch",
-    "Vegan":"Vegan",
-    "Lactose-vrij":"Lactose-vrij",
+    "geen voorkeur":"geen voorkeur",
+    "vegetarisch":"vegetarisch",
+    "vegan":"vegan",
+    "lactose vrij":"lactose vrij",
     "Aantal personen":"Aantal personen",
     "Inschrijven":"Inschrijven",
     "Inschrijving gelukt! tot dan!":"Inschrijving gelukt! tot dan!",
@@ -35,5 +36,7 @@
     "Tips":"Tips",
     "Uw E-mail":"Uw E-mail",
     "Voornaam":"Voornaam",
-    "Achternaam":"Achternaam"
+    "Achternaam":"Achternaam",
+
+    "Klopt het aantal personen niet? stuur maar een berichtje naar":"Klopt het aantal personen niet? Stuur maar een berichtje naar"
 }
