@@ -3,6 +3,8 @@ import type { AppProps } from 'next/app'
 import Head from 'next/head'
 import Script from 'next/script'
 import Link from 'next/link'
+import { appWithTranslation } from 'next-i18next';
+
 function Wedding({ Component, pageProps }: AppProps) {
   return (
   <div className="font-default text-white bg-bg bg-cover bg-center w-screen h-screen overflow-hidden" style={{backgroundColor:"#cacbcd"}}>
@@ -11,4 +13,4 @@ function Wedding({ Component, pageProps }: AppProps) {
   )
 }
 
-export default Wedding
+export default appWithTranslation(Wedding)
