@@ -7,7 +7,7 @@
             - kom naar avondfeest
             - vegan eten
             - vegetarisch eten
-            - lactose vrij
+            - lactosevrij
     1. als informatie niet gevonden. bereik via whatsapp of mail.
 =======
 

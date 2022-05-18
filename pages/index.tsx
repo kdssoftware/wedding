@@ -136,7 +136,7 @@ const Home: NextPage = () => {
       setEmail(e.target.value)
     }} 
     value={email}
-    type='email' placeholder={t("Uw E-mail")} className=' bg-olive-400 p-2 opacity-80 rounded-l-lg w-full md:w-1/2 xl:w-2/5  text-white placeholder-white col-span-5 focus:opacity-100'></input>
+    type='email' placeholder={t("Uw E-Mailadres")} className=' bg-olive-400 p-2 opacity-80 rounded-l-lg w-full md:w-1/2 xl:w-2/5  text-white placeholder-white col-span-5 focus:opacity-100'></input>
     <div className='col-span-1 rounded-r-lg bg-olive-500 py-2 px-4 hover:bg-olive-400 transition cursor-pointer'>
       <input type='submit' className='hidden' id='submit' required={true} />
       <label htmlFor="submit" className='cursor-pointer' >
@@ -219,7 +219,7 @@ const inschrijvingPersoonForm = (inschrijving:Inschrijving,inschrijvingIndex:num
               <div className='ml-4'>
                 <div>
                   <label htmlFor={"avond_ja_"+inschrijvingIndex} className='flex flex-row items-center justify-start '>
-                    <span>{t("Ja")}</span>
+                    <span>{t("ja")}</span>
                 <input className='ml-2' type="radio" name="avond" id={"avond_ja_"+inschrijvingIndex}  value={inschrijvingen[inschrijvingIndex]?.avond?"1":"0"} onChange={(e)=>{
                   setInschrijvingen(
                     inschrijvingen.map((val,i)=>{
@@ -287,7 +287,7 @@ const inschrijvingPersoonForm = (inschrijving:Inschrijving,inschrijvingIndex:num
         </div>
         <div>
         <label htmlFor={"lactoseVrij_"+inschrijvingIndex} className='flex flex-row items-center justify-between '>
-          <span>{t("lactose vrij")}</span>
+          <span>{t("lactosevrij")}</span>
       <input type="checkbox" id={"lactoseVrij_"+inschrijvingIndex} checked={inschrijvingen[inschrijvingIndex]?.lactoseVrij} onChange={(e)=>{
             setInschrijvingen(
               inschrijvingen.map((val,i)=>{
@@ -404,7 +404,7 @@ const inschrijvingPersoonForm = (inschrijving:Inschrijving,inschrijvingIndex:num
             </h2>
               {!showRSVP && 
                 <div className='text-2xl italic '>
-                  {t("Klopt het aantal personen niet? stuur maar een berichtje naar")} <a className='text-olive-200 underline not-italic' href="mailto:karel@karel.be?subject=Inschrijven trouw">karel@karel.be</a>
+                  {t("Klopt het aantal personen niet? Stuur gerust een berichtje naar")} <a className='text-olive-200 underline not-italic' href="mailto:karel@karel.be?subject=Inschrijven trouw">karel@karel.be</a>
                 </div>
               }
               {
@@ -418,9 +418,9 @@ const inschrijvingPersoonForm = (inschrijving:Inschrijving,inschrijvingIndex:num
           <div className="text-center text-2xl" >
               <p className="text-4xl underline pb-3">{t("Handige tips voor in Leuven")}</p>
               <ul className="text-left md:text-center list-inside">
-                  <li className="list-item list-disc">{t("Bij de receptie heb je toegang tot het hele museum! geniet ervan")}</li>
-                  <li className="list-item list-disc">{t("Een hoed of zonnebril aan te raden op het dakterras van Museum M")}</li>
-                  <li className='list-item list-disc'>{t("Bekijk de tips hier regelmatig, voor updates")}</li>
+                  <li className="list-item list-disc">{t("Bij de receptie heb je toegang tot het hele museum! Geniet ervan!")}</li>
+                  <li className="list-item list-disc">{t("Een hoed of zonnebril is aangeraden op het dakterras van Museum M")}</li>
+                  <li className='list-item list-disc'>{t("Bekijk de tips hier regelmatig voor updates")}</li>
               </ul>
           </div>
         )
@@ -436,7 +436,7 @@ const inschrijvingPersoonForm = (inschrijving:Inschrijving,inschrijvingIndex:num
                     <a className='bold text-olive-200 underline' href="https://goo.gl/maps/uGpFJjHqcsgtHUKG8">{t("Receptie in het Museum M")}</a>
                       </li>
                     <li className='list-disc md:list-none list-item'>
-                    <a className='bold text-olive-200 underline' href="https://goo.gl/maps/aqc6oGPdmJRw4mvSA">{t("AvondFeest in het Huis van Mihr")}</a>
+                    <a className='bold text-olive-200 underline' href="https://goo.gl/maps/aqc6oGPdmJRw4mvSA">{t("Avondfeest in het Huis van Mihr")}</a>
                     </li>
                   </ul>
                 </li>
@@ -456,7 +456,7 @@ const inschrijvingPersoonForm = (inschrijving:Inschrijving,inschrijvingIndex:num
                     <span className='bold not-italic text-2xl text-olive-200'>13h15 - 15h15 :</span> {t("Receptie Museum M")}
                     </li>
                     <li className='list-disc md:list-none list-item'>
-                    <span className='bold not-italic text-2xl text-olive-200'>18h00 :</span> {t("Avondfeest voor uitnodigden")}
+                    <span className='bold not-italic text-2xl text-olive-200'>18h00 :</span> {t("Avondfeest voor genodigden")}
                     </li>
                   </ul>
                 </li>
