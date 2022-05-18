@@ -7,7 +7,7 @@ import { appWithTranslation } from 'next-i18next';
 
 function Wedding({ Component, pageProps }: AppProps) {
   return (
-  <div className="font-default text-white bg-bg bg-cover bg-center w-screen h-screen overflow-hidden" style={{backgroundColor:"#cacbcd"}}>
+  <div className="font-font1 text-white bg-bg bg-cover bg-center w-screen h-screen overflow-hidden" style={{backgroundColor:"#cacbcd"}}>
     <Component {...pageProps} />
   </div>
   )

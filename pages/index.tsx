@@ -148,7 +148,7 @@ const Home: NextPage = () => {
 
 const inschrijvingPersoonForm = (inschrijving:Inschrijving,inschrijvingIndex:number) => {
   return(
-  <div key={inschrijvingIndex} className="flex flex-col md:flex-row my-1 lg:my-5 w-full not-italic ">
+  <div key={inschrijvingIndex} className="flex flex-col md:flex-row my-1 lg:my-5 w-full not-not-italic ">
     <div className='flex flex-col w-full md:w-1/3 justify-start'>
       <label htmlFor={"voornaam_"+inschrijvingIndex} className='bold text-3xl text-left underline mb-3'>{t("Naam")}</label>
       <div className='flex flex-col lg:my-4 md:flex-col lg:flex-row w-full'>
@@ -403,8 +403,8 @@ const inschrijvingPersoonForm = (inschrijving:Inschrijving,inschrijvingIndex:num
               {showRSVP && t("RSVP")}
             </h2>
               {!showRSVP && 
-                <div className='text-2xl italic '>
-                  {t("Klopt het aantal personen niet? Stuur gerust een berichtje naar")} <a className='text-olive-200 underline not-italic' href="mailto:karel@karel.be?subject=Inschrijven trouw">karel@karel.be</a>
+                <div className='text-2xl not-italic '>
+                  {t("Klopt het aantal personen niet? Stuur gerust een berichtje naar")} <a className='text-olive-200 underline not-not-italic' href="mailto:karel@karel.be?subject=Inschrijven trouw">karel@karel.be</a>
                 </div>
               }
               {
@@ -420,46 +420,35 @@ const inschrijvingPersoonForm = (inschrijving:Inschrijving,inschrijvingIndex:num
               <ul className="text-left md:text-center list-inside">
                   <li className="list-item list-disc">{t("Bij de receptie heb je toegang tot het hele museum! Geniet ervan!")}</li>
                   <li className="list-item list-disc">{t("Een hoed of zonnebril is aangeraden op het dakterras van Museum M")}</li>
+                  <li className="list-item list-disc">{t("In plaats van bloemetjes ontvangen we graag een centje. Dat kan op")}{" "}<span className='text-olive-100'>BE25 7460 3403 1082</span> </li>
                   <li className='list-item list-disc'>{t("Bekijk de tips hier regelmatig voor updates")}</li>
               </ul>
           </div>
         )
-      case t("Info"):
+      case t("Planning"):
         return (
           <div className="text-center text-2xl" >
-              <h2 className="text-5xl underline pb-3">{t("Info")}</h2>
-              <ul className='flex flex-col items-start md:items-center list-outside justify-start md:justify-center pl-6'>  
-                <li className='list-disc md:list-none list-item text-left md:text-center'>
-                  <span className='underline text-3xl'> {t("Locaties")} </span>
-                  <ul className='list-inside '>
-                    <li className='list-disc md:list-none  list-item'>
-                    <a className='bold text-olive-200 underline' href="https://goo.gl/maps/uGpFJjHqcsgtHUKG8">{t("Receptie in het Museum M")}</a>
-                      </li>
-                    <li className='list-disc md:list-none list-item'>
-                    <a className='bold text-olive-200 underline' href="https://goo.gl/maps/aqc6oGPdmJRw4mvSA">{t("Avondfeest in het Huis van Mihr")}</a>
-                    </li>
-                  </ul>
-                </li>
-                <li className='list-disc md:list-none  list-item text-left md:text-center'>
-                <span className='underline text-3xl'> {t("Planning")} </span>
-                  <ul className='list-inside '>
-                    <li className='list-disc md:list-none  list-item'>
-                    <span className='bold not-italic text-2xl text-olive-200'>12h15 :</span> {t("Trouwceremonie voor dichtste familie")}
+              <h2 className="text-5xl underline pb-3">{t("Planning")}</h2>
+              <ul className='flex flex-col text-left items-start md:items-center list-outside justify-start md:justify-center pl-6'>  
+              <li className='list-disc md:list-none  list-item'>
+                    <span className='bold not-not-italic text-2xl text-olive-200'>12h15 :</span> {t("Trouwceremonie voor dichtste familie")}
                     </li>
                     <li className='list-disc md:list-none list-item'>
-                    <span className='bold not-italic text-2xl text-olive-200'>12h30 :</span> {t("Verwelkoming aan het stadhuis")}
+                    <span className='bold not-not-italic text-2xl text-olive-200'>12h30 :</span> {t("Verwelkoming aan het")}{" "}
+                    <a className='bold text-olive-200 underline' href="https://maps.app.goo.gl/JC64MjwhFmpkDA4a9">{t("Stadhuis")}</a>
                     </li>
                     <li className='list-disc md:list-none list-item'>
-                    <span className='bold not-italic text-2xl text-olive-200'>{t("Nadien")}</span> {t("Wandeling naar Museum M")}
+                    <span className='bold not-not-italic text-2xl text-olive-200'>{t("Nadien")} :</span> {t("Wandeling naar")}{" "}
+                    <a className='bold text-olive-200 underline' href="https://goo.gl/maps/uGpFJjHqcsgtHUKG8">{t("Museum M")}</a>
                     </li>
                     <li className='list-disc md:list-none  list-item'>
-                    <span className='bold not-italic text-2xl text-olive-200'>13h15 - 15h15 :</span> {t("Receptie Museum M")}
+                    <span className='bold not-not-italic text-2xl text-olive-200'>13h15 - 15h15 :</span> {t("Receptie")}{" "}
+                    <a className='bold text-olive-200 underline' href="https://goo.gl/maps/uGpFJjHqcsgtHUKG8">{t("Museum M")}</a>
                     </li>
                     <li className='list-disc md:list-none list-item'>
-                    <span className='bold not-italic text-2xl text-olive-200'>18h00 :</span> {t("Avondfeest voor genodigden")}
+                    <span className='bold not-not-italic text-2xl text-olive-200'>18h00 : </span>{t("Avondfeest in")}{" "}
+                    <a className='bold text-olive-200 underline' href="https://goo.gl/maps/aqc6oGPdmJRw4mvSA">{t("het Huis van Mihr")}</a>
                     </li>
-                  </ul>
-                </li>
               </ul>
           </div>
           )
@@ -469,7 +458,7 @@ const inschrijvingPersoonForm = (inschrijving:Inschrijving,inschrijvingIndex:num
             <h2 className='text-6xl text-center'>{t("Welkom!")}</h2>
               <hr />
               <p className='text-4xl text-center'>
-                {t("Wij gaan trouwen op")} <span className={'font-font3 not-italic text-5xl font-bold'}>{t("13 augustus")}</span>
+                {t("Wij gaan trouwen op")} <span className={'font-font9 not-not-italic text-5xl font-bold'}>{t("13 augustus")}</span>
               </p>    
         </div>  
           )
@@ -483,12 +472,14 @@ const inschrijvingPersoonForm = (inschrijving:Inschrijving,inschrijvingIndex:num
 
   return (
     <>
-      <div className='font-font2 italic [text-shadow:0_4px_8px_rgba(0,0,0,0.65)]'>
+      <div className='font-font9 not-italic [text-shadow:0_4px_8px_rgba(0,0,0,0.65)]'>
         <button onClick={()=>{
           setNewPage("main")
         }}>
-          <h1 className='text-white font-font2 text-maxxl italic text-center w-screen shadow-black py-5' >
-            {showTK && "T&K"}
+          <h1 className='text-white font-font9 text-maxxl not-not-italic text-center w-screen shadow-black py-5' >
+            {showTK && <span>
+              T<span className='font-symbol'>&</span>K
+              </span>}
           </h1>
         </button>
           {
@@ -512,7 +503,7 @@ const inschrijvingPersoonForm = (inschrijving:Inschrijving,inschrijvingIndex:num
         <nav className="h-12 bottom-0 bg-olive-300 bg-opacity-40 grid grid-cols-3 gap-2 justify-center text-center ">
           {
               [
-                  t("Info"),
+                  t("Planning"),
                   t("RSVP"),
                   t("Tips")
               ].map( (title, key) => (

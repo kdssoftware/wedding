@@ -22,9 +22,15 @@ module.exports = {
       fontFamily: {
         'font1': ['Caveat', 'cursive'],
         'font2': ['Cormorant Garamond', 'cursive'],
-        'font3': ['Italianno', 'cursive'],
-        'font4': ['League Script', 'cursive'],
-        'font5': ['Ms Madi', 'cursive'],
+        'font3': ['Bentham', 'serif'],
+        'font4': ['Gilda Display', 'serif'],
+        'font5': ['Suravaram', 'serif'],
+        'font6': ['Noto Serif JP', 'serif'],
+        'font7': ['Junge', 'serif'],
+        'font8': ['Baloo Tammudu 2', 'cursive'],
+        'font9': ['Forum', 'cursive'],
+        
+        'symbol': ['Alex Brush','cursive'],
       },
       fontSize: {
         'maxxl': '12rem',
