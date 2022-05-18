@@ -180,13 +180,13 @@ const inschrijvingPersoonForm = (inschrijving:Inschrijving,inschrijvingIndex:num
       <legend className='bold text-3xl underline'>{t("Receptie")}</legend>
       <div className='ml-4'>
         <div>
-          <label htmlFor={"receptie_ja_"+inschrijvingIndex} className='flex flex-row items-center justify-start '>
+          <label htmlFor={"receptie_"+inschrijvingIndex} className='flex flex-row items-center justify-start '>
             <span>{t("ja")}</span>
-        <input className='ml-2' type="radio" name="receptie" id={"receptie_ja_"+inschrijvingIndex}  value={inschrijvingen[inschrijvingIndex]?.receptie?"1":"0"} onChange={(e)=>{
+        <input className='ml-2' type="radio" name={"receptie_"+inschrijvingIndex} id={"receptie_ja_"+inschrijvingIndex}  value={"1"} onChange={(e)=>{
           setInschrijvingen(
             inschrijvingen.map((val,i)=>{
               if(i===inschrijvingIndex){
-                val.receptie = e.target.value!=="1"
+                val.receptie = true
               }
               return val
             })
@@ -196,11 +196,11 @@ const inschrijvingPersoonForm = (inschrijving:Inschrijving,inschrijvingIndex:num
         <div>
           <label  htmlFor={"receptie_nee_"+inschrijvingIndex} className='flex flex-row items-center justify-start '>
             <span>{t("nee")}</span>
-          <input className='ml-2' type="radio" name="receptie" id="receptie_nee"  value={inschrijvingen[inschrijvingIndex]?.receptie?"1":"0"} onChange={(e)=>{
+          <input className='ml-2' type="radio" name={"receptie_"+inschrijvingIndex} id={"receptie_nee_"+inschrijvingIndex} value={"0"} onChange={(e)=>{
             setInschrijvingen(
               inschrijvingen.map((val,i)=>{
                 if(i===inschrijvingIndex){
-                  val.receptie = e.target.value!=="1"
+                  val.receptie = false
                 }
                 return val
               })
@@ -220,11 +220,11 @@ const inschrijvingPersoonForm = (inschrijving:Inschrijving,inschrijvingIndex:num
                 <div>
                   <label htmlFor={"avond_ja_"+inschrijvingIndex} className='flex flex-row items-center justify-start '>
                     <span>{t("ja")}</span>
-                <input className='ml-2' type="radio" name="avond" id={"avond_ja_"+inschrijvingIndex}  value={inschrijvingen[inschrijvingIndex]?.avond?"1":"0"} onChange={(e)=>{
+                <input className='ml-2' type="radio" name={"avond_"+inschrijvingIndex} id={"avond_ja_"+inschrijvingIndex}  value={"1"} onChange={(e)=>{
                   setInschrijvingen(
                     inschrijvingen.map((val,i)=>{
                       if(i===inschrijvingIndex){
-                        val.avond = e.target.value==="1"
+                        val.avond = true
                       }
                       return val
                     })
@@ -234,11 +234,11 @@ const inschrijvingPersoonForm = (inschrijving:Inschrijving,inschrijvingIndex:num
                 <div>
                   <label htmlFor={"avond_nee_"+inschrijvingIndex} className='flex flex-row items-center justify-start'>
                     <span>{t("nee")}</span>
-                  <input className='ml-2' type="radio" name="avond" id={"avond_nee_"+inschrijvingIndex}  value={inschrijvingen[inschrijvingIndex]?.receptie?"1":"0"} onChange={(e)=>{
+                  <input className='ml-2' type="radio" name={"avond_"+inschrijvingIndex} id={"avond_nee_"+inschrijvingIndex}  value={"0"} onChange={(e)=>{
                     setInschrijvingen(
                       inschrijvingen.map((val,i)=>{
                         if(i===inschrijvingIndex){
-                          val.avond = e.target.value!=="1"
+                          val.avond = false
                         }
                         return val
                       })
