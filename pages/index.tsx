@@ -368,7 +368,7 @@ const inschrijvingPersoonForm = (inschrijving:Inschrijving,inschrijvingIndex:num
     data:inschrijvingen,
     email:email,
    }).then((response)=>{
-     setEmailText(t("Inschrijving gelukt! tot dan!"))
+     setEmailText(t("Inschrijving gelukt! Tot dan!"))
      setFormStep(2)
      setHeight(250)
      setShowTK(true)
