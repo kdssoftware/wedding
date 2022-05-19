@@ -28,8 +28,8 @@ type Invite = {
 }
 
 const searchByName = async (name:string, surName:string) : Promise<Invite|null>=> {
-    name = name.trim()
-    surName = surName.trim()
+    name = name.trim().toLowerCase()
+    surName = surName.trim().toLowerCase()
     let found = false;
     const collumn = await sheets.spreadsheets.values.get({
         auth: await getJWTClient(),
@@ -40,7 +40,7 @@ const searchByName = async (name:string, surName:string) : Promise<Invite|null>=
     const Index = collumn.data.values?.findIndex((pr) => {        
         for( const nameDB of String(pr[0]).split(";")){
             console.log(name, name+" "+surName)
-            if((nameDB.trim() === name+" "+surName) || (nameDB.trim() === surName+" "+name)){
+            if((nameDB.trim().toLowerCase() === name+" "+surName) || (nameDB.trim().toLowerCase() === surName+" "+name)){
                 return true;
             }
         }
@@ -68,6 +68,7 @@ const searchByName = async (name:string, surName:string) : Promise<Invite|null>=
 }
 
 const searchByEmail = async (email:string) : Promise<Invite|null>=> {
+    email = email.trim().toLowerCase()
     let found = false;
     const collumn = await sheets.spreadsheets.values.get({
         auth: await getJWTClient(),
@@ -77,7 +78,7 @@ const searchByEmail = async (email:string) : Promise<Invite|null>=> {
     });
     const emailIndex = collumn.data.values?.findIndex((pr) => {        
         for( const emailData of String(pr[0]).split(";")){
-            if(emailData === email){
+            if(emailData.toLowerCase() === email){
                 return true;
             }
         }

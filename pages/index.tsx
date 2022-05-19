@@ -160,22 +160,22 @@ const Home: NextPage = () => {
           setRegName(e.target.value)
         }}
         value={regName}
-        type='text' placeholder={t("Voornaam")} 
-        className='w-full bg-olive-400 p-2 opacity-80 rounded-lg text-white placeholder-white focus:opacity-100'></input>
+        type='text' placeholder={t("Voornaam")+"*"} 
+        className='w-full bg-olive-400 p-2 opacity-80 rounded-lg text-white placeholder-white focus:opacity-100' required={true}></input>
         <input onChange={(e)=>{
           setRegSurName(e.target.value)
         }}
         value={regSurName}
-        type='text' placeholder={t("Achternaam")} 
-        className='w-full bg-olive-400 p-2 opacity-80 rounded-lg text-white placeholder-white focus:opacity-100'></input>
+        type='text' placeholder={t("Achternaam")+"*"} 
+        className='w-full bg-olive-400 p-2 opacity-80 rounded-lg text-white placeholder-white focus:opacity-100' required={true}></input>
     </div>  
     <div className='w-full md:w-2/3 lg:w-2/4 xl:w-2/5 my-2'>
       <input onChange={(e)=>{
             setEmail(e.target.value)
           }}
           value={email}
-          type='email' placeholder={t("E-Mailadres")} 
-          className='w-full bg-olive-400 p-2 opacity-80 rounded-lg text-white placeholder-white focus:opacity-100'></input>
+          type='email' placeholder={t("E-Mailadres")+"*"} 
+          className='w-full bg-olive-400 p-2 opacity-80 rounded-lg text-white placeholder-white focus:opacity-100' required={true}></input>
     </div>
     <div className='w-full flex justify-center'>
     <input type='submit' className='hidden' id='submit' required={true}  />
