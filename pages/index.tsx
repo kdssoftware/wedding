@@ -83,16 +83,16 @@ const Home: NextPage = () => {
           break;
         case t("RSVP"):
           if(widthW<450){
-            setHeight("55%")
+            setHeight("60%")
           }
           else if(widthW<600){
-            setHeight("50%")
+            setHeight("55%")
           }else if (widthW<650){
-            setHeight("50%")
+            setHeight("55%")
           }else if (widthW<900){
-            setHeight("38%")
+            setHeight("43%")
           }else{
-            setHeight("38%")
+            setHeight("43%")
           }
           break;
         default:
@@ -107,6 +107,7 @@ const Home: NextPage = () => {
   //search email from user. if email found. able to edit personen. if not found. not able to edit personen
   const submitFormulier0 = async (e : FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setEmailText("")
     setFormStep(0)
     setEmailIsFound(false);
     setFormOneLoading(true)
@@ -114,7 +115,7 @@ const Home: NextPage = () => {
       setShowTK(false);
       setShowRSVP(false);
       const invite = response.data as Invite
-      console.log(invite)
+      
 
       let inschrijvingenNew : Inschrijving[] = []
       for (let i = 0 ; i < invite?.personen??0 ; i++ ){
@@ -124,7 +125,7 @@ const Home: NextPage = () => {
             lactoseVrij:false,
             voornaam:regName,
             achternaam:regSurName,
-            receptie:true,
+            receptie:false,
             vegan:false,
             vegetarisch:false,
             geenVoorkeur:false,
@@ -135,7 +136,7 @@ const Home: NextPage = () => {
             lactoseVrij:false,
             voornaam:"",
             achternaam:"",
-            receptie:true,
+            receptie:false,
             vegan:false,
             vegetarisch:false,
             geenVoorkeur:false,
@@ -152,6 +153,7 @@ const Home: NextPage = () => {
     }).catch((err : AxiosError)=>{
       const status = err.request.status;
       if(status === 404){
+        setHeight("95%");
         setShowTK(false);
         setShowRSVP(false);
         let inschrijvingenNew : Inschrijving[] = [{
@@ -459,6 +461,20 @@ const inschrijvingPersoonForm = (inschrijving:Inschrijving,inschrijvingIndex:num
      setHeight(250)
      setShowTK(true)
      setShowRSVP(true);
+
+    if(widthW<450){
+      setHeight("60%")
+    }
+    else if(widthW<600){
+      setHeight("55%")
+    }else if (widthW<650){
+      setHeight("55%")
+    }else if (widthW<900){
+      setHeight("43%")
+    }else{
+      setHeight("43%")
+    }
+
    }).catch((error)=>{
     console.log(error)
     setEmailText(t("Er was iets misgelopen. stuur een mail naar karel@karel.be"))
@@ -593,7 +609,7 @@ const inschrijvingPersoonForm = (inschrijving:Inschrijving,inschrijvingIndex:num
                   t("Tips")
               ].map( (title, key) => (
                   <div className="text-4xl text-white cursor-pointer hover:scale-125 transition-all" onClick={()=>{
-                    console.log(title);
+                    
                     setNewPage(title)
                   }} key={key}>
                       {title}

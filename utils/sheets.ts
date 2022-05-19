@@ -39,7 +39,7 @@ const searchByName = async (name:string, surName:string) : Promise<Invite|null>=
     });
     const Index = collumn.data.values?.findIndex((pr) => {        
         for( const nameDB of String(pr[0]).split(";")){
-            console.log(name, name+" "+surName)
+            
             if((nameDB.trim().toLowerCase() === name+" "+surName) || (nameDB.trim().toLowerCase() === surName+" "+name)){
                 return true;
             }
@@ -117,8 +117,8 @@ type Inschrijving = {
 }
 
 const register = async (email:string, inschrijvingen : Inschrijving[], ) => {
-    console.log("register ",inschrijvingen)
-    console.log(inschrijvingen.map)
+    
+    
     const now = new Date().toLocaleString("nl-BE")
     const sendData = inschrijvingen.map((i:Inschrijving)=> Object.values({
         email,
@@ -131,7 +131,7 @@ const register = async (email:string, inschrijvingen : Inschrijving[], ) => {
         geenVoorkeur:i.geenVoorkeur?"✅":"❌",
         now : now.toString()
     }))
-    console.log(sendData);
+    
     await sheets.spreadsheets.values.append({
         auth: await getJWTClient(),
         spreadsheetId: process.env.GOOGLE_SPREADSHEET_ID,
