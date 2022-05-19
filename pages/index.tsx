@@ -31,7 +31,12 @@ const Home: NextPage = () => {
   const [emailText,setEmailText] = useState("")
   const [showTK, setShowTK] = useState(true)
   const [showRSVP, setShowRSVP] = useState(true)
+
+  //form 0
   const [email,setEmail] = useState<string>("")
+  const [regName,setRegName] = useState<string>("")
+  const [regSurName,setRegSurName] = useState<string>("")
+
 
   const setNewPage = async (page :string) => {
     setTimeout(()=>{
@@ -60,7 +65,7 @@ const Home: NextPage = () => {
     setFormStep(0)
     setEmailIsFound(false);
     setFormOneLoading(true)
-    await axios.get("/api/v0/search?email="+email).then((response)=>{
+    await axios.get("/api/v0/search?email="+email+"&name="+regName+"&surName="+regSurName).then((response)=>{
       setShowTK(false);
       setShowRSVP(false);
       const invite = response.data as Invite
@@ -68,16 +73,29 @@ const Home: NextPage = () => {
 
       let inschrijvingenNew : Inschrijving[] = []
       for (let i = 0 ; i < invite?.personen??0 ; i++ ){
-        inschrijvingenNew.push({
-          avond:false,
-          lactoseVrij:false,
-          voornaam:"",
-          achternaam:"",
-          receptie:false,
-          vegan:false,
-          vegetarisch:false,
-          geenVoorkeur:false,
-        })
+        if(i===0){
+          inschrijvingenNew.push({
+            avond:false,
+            lactoseVrij:false,
+            voornaam:regName,
+            achternaam:regSurName,
+            receptie:true,
+            vegan:false,
+            vegetarisch:false,
+            geenVoorkeur:false,
+          })
+        }else{
+          inschrijvingenNew.push({
+            avond:false,
+            lactoseVrij:false,
+            voornaam:"",
+            achternaam:"",
+            receptie:true,
+            vegan:false,
+            vegetarisch:false,
+            geenVoorkeur:false,
+          })
+        }
       }
       setInschrijvingen(inschrijvingenNew)
       setInschrijvingenCache(inschrijvingenNew)
@@ -131,27 +149,50 @@ const Home: NextPage = () => {
   } 
 
   const formulier0 = (
-    <form onSubmit={(e)=>{submitFormulier0(e)}}  className='flex mx-0 sm:mx-4 md:mx-8 lg:mx-12 justify-center content-center pt-5'>
-    <input onChange={(e)=>{
-      setEmail(e.target.value)
-    }} 
-    value={email}
-    type='email' placeholder={t("Uw E-Mailadres")} className=' bg-olive-400 p-2 opacity-80 rounded-l-lg w-full md:w-1/2 xl:w-2/5  text-white placeholder-white col-span-5 focus:opacity-100'></input>
-    <div className='col-span-1 rounded-r-lg bg-olive-500 py-2 px-4 hover:bg-olive-400 transition cursor-pointer'>
-      <input type='submit' className='hidden' id='submit' required={true} />
+    <>
+    <p>
+      Indien je inschrijft als familie of +1, vul één van je namen in.
+    </p>
+    <form onSubmit={(e)=>{submitFormulier0(e)}}  className='flex flex-col place-items-center mb-0 sm:mb-4 md:mb-8 lg:mb-12 justify-center content-center pt-2'>
+
+    <div className='flex w-full md:w-2/3 lg:w-2/4  xl:w-2/5 flex-col sm:flex-row gap-2'>
+        <input onChange={(e)=>{
+          setRegName(e.target.value)
+        }}
+        value={regName}
+        type='text' placeholder={t("Voornaam")} 
+        className='w-full bg-olive-400 p-2 opacity-80 rounded-lg text-white placeholder-white focus:opacity-100'></input>
+        <input onChange={(e)=>{
+          setRegSurName(e.target.value)
+        }}
+        value={regSurName}
+        type='text' placeholder={t("Achternaam")} 
+        className='w-full bg-olive-400 p-2 opacity-80 rounded-lg text-white placeholder-white focus:opacity-100'></input>
+    </div>  
+    <div className='w-full md:w-2/3 lg:w-2/4 xl:w-2/5 my-2'>
+      <input onChange={(e)=>{
+            setEmail(e.target.value)
+          }}
+          value={email}
+          type='email' placeholder={t("E-Mailadres")} 
+          className='w-full bg-olive-400 p-2 opacity-80 rounded-lg text-white placeholder-white focus:opacity-100'></input>
+    </div>
+    <div className='bg-olive-500 rounded-lg py-3 px-4 hover:bg-olive-400 transition cursor-pointer w-full sm:w-20 flex justify-center'>
+    <input type='submit' className='hidden' id='submit' required={true} />
       <label htmlFor="submit" className='cursor-pointer' >
       <svg className={formOneLoading?"animate-bounce":""} width="40" height="31"  fill="white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M256 0C114.6 0 0 114.6 0 256c0 141.4 114.6 256 256 256s256-114.6 256-256C512 114.6 397.4 0 256 0zM406.6 278.6l-103.1 103.1c-12.5 12.5-32.75 12.5-45.25 0s-12.5-32.75 0-45.25L306.8 288H128C110.3 288 96 273.7 96 256s14.31-32 32-32h178.8l-49.38-49.38c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l103.1 103.1C414.6 241.3 416 251.1 416 256C416 260.9 414.6 270.7 406.6 278.6z"/></svg>
-      </label>
+      </label>  
     </div>
   </form>
+  </>
   )
 
 const inschrijvingPersoonForm = (inschrijving:Inschrijving,inschrijvingIndex:number) => {
   return(
-  <div key={inschrijvingIndex} className="flex flex-col md:flex-row my-1 lg:my-5 w-full not-not-italic ">
+  <div key={inschrijvingIndex} className="flex flex-col md:flex-row my-1 lg:my-5 w-95 not-not-italic ">
     <div className='flex flex-col w-full md:w-1/3 justify-start'>
       <label htmlFor={"voornaam_"+inschrijvingIndex} className='bold text-3xl text-left underline mb-3'>{t("Naam")}</label>
-      <div className='flex flex-col lg:my-4 md:flex-col lg:flex-row w-full'>
+      <div className='flex flex-col lg:my-4 lg:flex-col xl:flex-row w-full'>
         <input className='w-2/3 my-2 md:my-2 md:w-full text-black text-xl rounded-lg px-2 mx-1' type="text" placeholder={t("Voornaam")} id={"voornaam_"+inschrijvingIndex} value={inschrijvingen[inschrijvingIndex]?.voornaam} onChange={(e)=>{
           setInschrijvingen(
             inschrijvingen.map((val,i)=>{

@@ -27,6 +27,46 @@ type Invite = {
     isAvond:boolean,
 }
 
+const searchByName = async (name:string, surName:string) : Promise<Invite|null>=> {
+    name = name.trim()
+    surName = surName.trim()
+    let found = false;
+    const collumn = await sheets.spreadsheets.values.get({
+        auth: await getJWTClient(),
+        spreadsheetId: process.env.GOOGLE_SPREADSHEET_ID,
+        range: 'database!A2:A300',
+        majorDimension:"ROWS",
+    });
+    const Index = collumn.data.values?.findIndex((pr) => {        
+        for( const nameDB of String(pr[0]).split(";")){
+            console.log(name, name+" "+surName)
+            if((nameDB.trim() === name+" "+surName) || (nameDB.trim() === surName+" "+name)){
+                return true;
+            }
+        }
+        return false
+    });
+    if(typeof Index === "number" && Index!==-1){
+        found = true
+        const IndexCorrect = Index+2;
+        let dataRaw = (await sheets.spreadsheets.values.get({
+            auth: await getJWTClient(),
+            spreadsheetId: process.env.GOOGLE_SPREADSHEET_ID,
+            range:'database!B'+IndexCorrect+":E"+IndexCorrect+"",
+            majorDimension:"ROWS",
+        })).data.values
+        if(dataRaw && dataRaw.length === 1 && dataRaw[0].length > 2){
+            return {
+                emails:String(dataRaw[0][0]).split(";"),
+                personen:Number(dataRaw[0][1]),
+                isReceptie:dataRaw[0][2] && String(dataRaw[0][2]||"")==="x",
+                isAvond:dataRaw[0][3] && String(dataRaw[0][3]||"")==="x",
+            }
+        }
+    }
+    return null;
+}
+
 const searchByEmail = async (email:string) : Promise<Invite|null>=> {
     let found = false;
     const collumn = await sheets.spreadsheets.values.get({
@@ -110,7 +150,8 @@ const register = async (email:string, inschrijvingen : Inschrijving[], ) => {
 export {
     getJWTClient,
     searchByEmail,
-    register
+    register,
+    searchByName
 };
 export type {
     Inschrijving,
