@@ -457,12 +457,11 @@ const inschrijvingPersoonForm = (inschrijving:Inschrijving,inschrijvingIndex:num
       case t("Tips"):
         return (
           <div className="text-center text-2xl" >
-              <p className="text-4xl underline pb-3">{t("Handige tips voor in Leuven")}</p>
+              <p className="text-4xl underline pb-3">{t("Handige tips")}</p>
               <ul className="text-left md:text-center list-inside">
                   <li className="list-item list-disc">{t("Na de receptie heb je toegang tot het hele museum! Geniet ervan!")}</li>
                   <li className="list-item list-disc">{t("Een hoed of zonnebril is aangeraden op het dakterras van Museum M")}</li>
                   <li className="list-item list-disc">{t("In plaats van bloemetjes ontvangen we graag een centje. Dat kan op")}{" "}<span className='text-olive-100'>BE25 7460 3403 1082</span> </li>
-                  <li className='list-item list-disc'>{t("Bekijk de tips hier regelmatig voor updates")}</li>
               </ul>
           </div>
         )
