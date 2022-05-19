@@ -151,7 +151,7 @@ const Home: NextPage = () => {
   const formulier0 = (
     <>
     <p>
-      Indien je inschrijft als familie of +1, vul één van je namen in.
+      {t("Indien je inschrijft als familie of +1, vul één van je namen in.")}
     </p>
     <form onSubmit={(e)=>{submitFormulier0(e)}}  className='flex flex-col place-items-center mb-0 sm:mb-4 md:mb-8 lg:mb-12 justify-center content-center pt-2'>
 
