@@ -7,8 +7,10 @@ import { Inschrijving, Invite } from '../utils/sheets'
 import { useTranslation } from 'next-i18next';
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import {useWindowSize} from 'react-use';
 
 const Home: NextPage = () => {
+  const {width:widthW, width:heightW} = useWindowSize();
   const router = useRouter()
   const { t } = useTranslation('common');
   const emailSvg = ( <svg  width="40" height="31" viewBox="0 0 40 31" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -32,6 +34,7 @@ const Home: NextPage = () => {
   const [showTK, setShowTK] = useState(true)
   const [showRSVP, setShowRSVP] = useState(true)
 
+
   //form 0
   const [email,setEmail] = useState<string>("")
   const [regName,setRegName] = useState<string>("")
@@ -52,7 +55,49 @@ const Home: NextPage = () => {
       setHeight(0)
     },100)
     setTimeout(()=>{
-      setHeight(400)
+      switch(page){
+        case t("Planning"):
+          if(widthW<400){
+            setHeight("50%")
+          }
+          else if(widthW<600){
+            setHeight("40%")
+          }else if (widthW<900){
+            setHeight("30%")
+          }else{
+            setHeight("30%")
+          }
+          
+          break;
+        case t("Tips"):
+          if(widthW<450){
+            setHeight("50%")
+          }
+          else if(widthW<600){
+            setHeight("38%")
+          }else if (widthW<900){
+            setHeight("34%")
+          }else{
+            setHeight("25%")
+          }
+          break;
+        case t("RSVP"):
+          if(widthW<450){
+            setHeight("55%")
+          }
+          else if(widthW<600){
+            setHeight("50%")
+          }else if (widthW<650){
+            setHeight("50%")
+          }else if (widthW<900){
+            setHeight("38%")
+          }else{
+            setHeight("38%")
+          }
+          break;
+        default:
+          setHeight("30%")
+      }
     },400)
     setTimeout(()=>{
       setPage(page)
@@ -508,7 +553,7 @@ const inschrijvingPersoonForm = (inschrijving:Inschrijving,inschrijvingIndex:num
     }
   }
 
-  const classes = "fixed bottom-14 w-full text-white bg-olive-700 bg-opacity-60 rounded-lg p-6 transition-all overflow-y-scroll overflow-x-hidden"
+  const classes = "fixed bottom-14 w-full text-white bg-olive-700 bg-opacity-60 rounded-lg pt-6 px-3 pb-1 transition-all overflow-y-scroll overflow-x-hidden"
 
   return (
     <>
