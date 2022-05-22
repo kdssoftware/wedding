@@ -238,7 +238,7 @@ const inschrijvingPersoonForm = (inschrijving:Inschrijving,inschrijvingIndex:num
   return(
   <div key={inschrijvingIndex} className="flex flex-col md:flex-row my-1 lg:my-5 w-95 not-not-italic ">
     <div className='flex flex-col w-full md:w-1/3 justify-start'>
-      <label htmlFor={"voornaam_"+inschrijvingIndex} className='bold text-3xl text-left underline mb-3'>{t("Naam")}</label>
+      <label htmlFor={"voornaam_"+inschrijvingIndex} className='bold text-2xl md:text-3xl  text-left underline mb-3'>{t("Naam")}</label>
       <div className='flex flex-col lg:my-4 lg:flex-col xl:flex-row w-full'>
         <input className='w-2/3 my-2 md:my-2 md:w-full text-black text-xl rounded-lg px-2 mx-1' type="text" placeholder={t("Voornaam")} id={"voornaam_"+inschrijvingIndex} value={inschrijvingen[inschrijvingIndex]?.voornaam} onChange={(e)=>{
           setInschrijvingen(
@@ -265,7 +265,7 @@ const inschrijvingPersoonForm = (inschrijving:Inschrijving,inschrijvingIndex:num
 
     <div className='flex flex-row items-start justify-start md:justify-center my-2 md:my-0 lg:mx-4 w-1/3'>
     <fieldset className='mx-0 md:mx-4 flex-col flex w-1/6'>
-      <legend className='bold text-3xl underline'>{t("Receptie")}</legend>
+      <legend className='bold text-2xl md:text-3xl  underline'>{t("Receptie")}</legend>
       <div className='ml-4'>
         <div>
           <label htmlFor={"receptie_"+inschrijvingIndex} className='flex flex-row items-center justify-start '>
@@ -303,7 +303,7 @@ const inschrijvingPersoonForm = (inschrijving:Inschrijving,inschrijvingIndex:num
       invite?.isAvond && (
         <div className='flex flex-row items-start justify-start md:justify-center my-2 md:my-0 lg:mx-4 w-1/3'>
         <fieldset className='mx-0 md:mx-4 flex-col flex w-1/6'>
-              <legend className='bold text-3xl underline'>{t("Avondfeest")}</legend>
+              <legend className='bold text-2xl md:text-3xl  underline'>{t("Avondfeest")}</legend>
               <div className='ml-4'>
                 <div>
                   <label htmlFor={"avond_ja_"+inschrijvingIndex} className='flex flex-row items-center justify-start '>
@@ -341,7 +341,7 @@ const inschrijvingPersoonForm = (inschrijving:Inschrijving,inschrijvingIndex:num
     }
     <div className='flex w-full md:w-1/3 justify-start md:justify-center md:border-0 border-b-2 border-b-olive-400'>
       <fieldset>
-        <legend className='bold text-3xl underline'>{t("Voorkeur eten")}</legend>
+        <legend className='bold text-2xl md:text-3xl  underline'>{t("Voorkeur eten")}</legend>
         <div>
         <label htmlFor={"vegetarisch_"+inschrijvingIndex} className='flex flex-row items-center justify-between '>
           <span>{t("vegetarisch")}</span>
@@ -415,7 +415,7 @@ const inschrijvingPersoonForm = (inschrijving:Inschrijving,inschrijvingIndex:num
       emailIsFound && false && 
       <div className='flex flex-col items-center'>
         <label htmlFor="aantal">{t("Aantal personen")}</label>
-        <input className='text-black rounded-lg text-3xl my-1 w-12 text-center' type="number" min="1" step="1" max="6" value={invite?.personen} onChange={(e)=>{
+        <input className='text-black rounded-lg text-2xl md:text-3xl  my-1 w-12 text-center' type="number" min="1" step="1" max="6" value={invite?.personen} onChange={(e)=>{
           const newPersonen = Number(e.target.value)
           if(invite==null){
             setFormStep(0);
@@ -528,26 +528,26 @@ const inschrijvingPersoonForm = (inschrijving:Inschrijving,inschrijvingIndex:num
         )
       case t("Planning"):
         return (
-          <div className="text-center text-2xl" >
+          <div className="text-center text-xl md:text" >
               <h2 className="text-5xl underline pb-3">{t("Planning")}</h2>
               <ul className='flex flex-col text-left items-start md:items-center list-outside justify-start md:justify-center pl-6'>  
               <li className='list-disc md:list-none  list-item'>
-                    <span className='bold not-not-italic text-2xl text-olive-200'>12h15 :</span> {t("Trouwceremonie voor dichtste familie")}
+                    <span className='bold not-not-italic text-xl md:text text-olive-200'>12h15 :</span> {t("Trouwceremonie voor dichtste familie")}
                     </li>
                     <li className='list-disc md:list-none list-item'>
-                    <span className='bold not-not-italic text-2xl text-olive-200'>12h30 :</span> {t("Verwelkoming aan het")}{" "}
+                    <span className='bold not-not-italic text-xl md:text text-olive-200'>12h30 :</span> {t("Verwelkoming aan het")}{" "}
                     <a className='bold text-olive-200 underline' href="https://maps.app.goo.gl/JC64MjwhFmpkDA4a9">{t("Stadhuis")}</a>
                     </li>
                     <li className='list-disc md:list-none list-item'>
-                    <span className='bold not-not-italic text-2xl text-olive-200'>{t("Nadien")} :</span> {t("Wandeling naar")}{" "}
+                    <span className='bold not-not-italic text-xl md:text text-olive-200'>{t("Nadien")} :</span> {t("Wandeling naar")}{" "}
                     <a className='bold text-olive-200 underline' href="https://goo.gl/maps/uGpFJjHqcsgtHUKG8">{t("Museum M")}</a>
                     </li>
                     <li className='list-disc md:list-none  list-item'>
-                    <span className='bold not-not-italic text-2xl text-olive-200'>13h15 - 15h15 :</span> {t("Receptie")}{" "}
+                    <span className='bold not-not-italic text-xl md:text text-olive-200'>13h15 - 15h15 :</span> {t("Receptie")}{" "}
                     <a className='bold text-olive-200 underline' href="https://goo.gl/maps/uGpFJjHqcsgtHUKG8">{t("Museum M")}</a>
                     </li>
                     <li className='list-disc md:list-none list-item'>
-                    <span className='bold not-not-italic text-2xl text-olive-200'>18h00 : </span>{t("Avondfeest in")}{" "}
+                    <span className='bold not-not-italic text-xl md:text text-olive-200'>18h00 : </span>{t("Avondfeest in")}{" "}
                     <a className='bold text-olive-200 underline' href="https://goo.gl/maps/aqc6oGPdmJRw4mvSA">{t("het Huis van Mihr")}</a>
                     </li>
               </ul>
@@ -589,7 +589,7 @@ const inschrijvingPersoonForm = (inschrijving:Inschrijving,inschrijvingIndex:num
             href='/'
             locale={router.locale === 'nl' ? 'en' : 'nl'}
           >
-            <button className='bg-olive-800 opacity-90 px-4 py-2 rounded-lg bold text-2xl fixed top-1 right-1'>
+            <button className='bg-olive-800 opacity-90 px-4 py-2 rounded-lg bold text-xl md:text fixed top-1 right-1'>
               {(router.locale === 'nl' ? 'en' : 'nl').toUpperCase()}
             </button>
           </Link>
