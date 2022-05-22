@@ -176,7 +176,6 @@ const Home: NextPage = () => {
         setInschrijvingen(inschrijvingenNew)
         setInschrijvingenCache(inschrijvingenNew)
         setFormStep(1)
-        setHeight(400);
         setEmailIsFound(false)
         // setEmailText("We hebben het email adres niet gevonden");
         setFormOneLoading(false)
@@ -266,7 +265,7 @@ const inschrijvingPersoonForm = (inschrijving:Inschrijving,inschrijvingIndex:num
     <div className='flex flex-row items-start justify-start md:justify-center my-2 md:my-0 lg:mx-4 w-1/3'>
     <fieldset className='mx-0 md:mx-4 flex-col flex w-1/6'>
       <legend className='bold text-2xl md:text-3xl  underline'>{t("Receptie")}</legend>
-      <div className='ml-4'>
+      <div className='ml-2'>
         <div>
           <label htmlFor={"receptie_"+inschrijvingIndex} className='flex flex-row items-center justify-start '>
             <span>{t("ja")}</span>
@@ -339,10 +338,10 @@ const inschrijvingPersoonForm = (inschrijving:Inschrijving,inschrijvingIndex:num
             </div>
       )
     }
-    <div className='flex w-full md:w-1/3 justify-start md:justify-center md:border-0 border-b-2 border-b-olive-400'>
+    <div className='flex w-full md:w-1/3 justify-start mb-2 py-2 md:justify-start text-left md:border-0 border-b-2 border-b-olive-400'>
       <fieldset>
         <legend className='bold text-2xl md:text-3xl  underline'>{t("Voorkeur eten")}</legend>
-        <div>
+        <div className='ml-2'>
         <label htmlFor={"vegetarisch_"+inschrijvingIndex} className='flex flex-row items-center justify-between '>
           <span>{t("vegetarisch")}</span>
         <input type="checkbox" id={"vegetarisch_"+inschrijvingIndex} checked={inschrijvingen[inschrijvingIndex]?.vegetarisch} onChange={(e)=>{
@@ -358,7 +357,7 @@ const inschrijvingPersoonForm = (inschrijving:Inschrijving,inschrijvingIndex:num
             </label>
         </div>
               
-        <div>
+        <div className='ml-2'>
         <label htmlFor={"vegan_"+inschrijvingIndex} className='flex flex-row items-center justify-between '>
           <span>{t("vegan")}</span>
           <input type="checkbox" id={"vegan_"+inschrijvingIndex} checked={inschrijvingen[inschrijvingIndex]?.vegan} onChange={(e)=>{
@@ -373,7 +372,7 @@ const inschrijvingPersoonForm = (inschrijving:Inschrijving,inschrijvingIndex:num
               }} />
           </label>
         </div>
-        <div>
+        <div className='ml-2'>
         <label htmlFor={"lactoseVrij_"+inschrijvingIndex} className='flex flex-row items-center justify-between '>
           <span>{t("lactosevrij")}</span>
       <input type="checkbox" id={"lactoseVrij_"+inschrijvingIndex} checked={inschrijvingen[inschrijvingIndex]?.lactoseVrij} onChange={(e)=>{
@@ -388,9 +387,9 @@ const inschrijvingPersoonForm = (inschrijving:Inschrijving,inschrijvingIndex:num
           }} />
           </label>
         </div>
-        <div>
-        <label htmlFor={"geenvookeur_"+inschrijvingIndex} className='flex flex-row items-center justify-between '>
-          <span>{t("geen voorkeur")}</span>
+        <div className='ml-2'>
+        <label htmlFor={"geenvookeur_"+inschrijvingIndex} className='flex flex-row items-center justify-between'>
+          <span className='pr-2'>{t("geen voorkeur")}</span>
       <input type="checkbox" id={"geenvookeur_"+inschrijvingIndex} checked={inschrijvingen[inschrijvingIndex]?.geenVoorkeur} onChange={(e)=>{
             setInschrijvingen(
               inschrijvingen.map((val,i)=>{
@@ -505,7 +504,7 @@ const inschrijvingPersoonForm = (inschrijving:Inschrijving,inschrijvingIndex:num
               {showRSVP && t("RSVP")}
             </h2>
               {!showRSVP && 
-                <div className='text-2xl not-italic '>
+                <div className='text-2xl not-italic text-left'>
                   {t("Klopt het aantal personen niet? Stuur gerust een berichtje naar")} <a className='text-olive-200 underline not-not-italic' href="mailto:karel@karel.be?subject=Inschrijven trouw">karel@karel.be</a>
                 </div>
               }
