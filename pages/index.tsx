@@ -13,19 +13,13 @@ const Home: NextPage = () => {
   const {width:widthW, width:heightW} = useWindowSize();
   const router = useRouter()
   const { t } = useTranslation('common');
-  const emailSvg = ( <svg  width="40" height="31" viewBox="0 0 40 31" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect x="1" y="1" width="38" height="28.1449" rx="4" stroke="white" strokeWidth="2"/>
-  <path d="M6.03653 5.76294L19.7102 18.2608" stroke="white" strokeWidth="2" strokeLinecap="round"/>
-  <path d="M33.6232 5.79709L19.7411 18.2458" stroke="white" strokeWidth="2" strokeLinecap="round"/>
-  <line x1="6.41727" y1="24.0936" x2="15.398" y2="15.6118" stroke="white" strokeWidth="2" strokeLinecap="round"/>
-  <line x1="33.3689" y1="24.9658" x2="23.8063" y2="15.9065" stroke="white" strokeWidth="2" strokeLinecap="round"/>
-</svg>)
 
   const [page, setPage] = useState<string>("main")
   const [height, setHeight] = useState<number|string>()
   const [formStep,setFormStep] = useState<number>(0) //0: not started yet. 1: email put in, can input invitations. 2: send invitations
   const [inschrijvingen,setInschrijvingen] = useState<Inschrijving[]>([])
   const [formOneLoading,  setFormOneLoading] = useState(false);
+  const [formTwoLoading,  setFormTwoLoading] = useState(false);
   const [inschrijvingenCache,setInschrijvingenCache] = useState<Inschrijving[]>([])
   const [invite,setInvite] = useState<Invite|null>()
   const [emailIsFound,setEmailIsFound] = useState(false)
@@ -33,7 +27,14 @@ const Home: NextPage = () => {
   const [emailText,setEmailText] = useState("")
   const [showTK, setShowTK] = useState(true)
   const [showRSVP, setShowRSVP] = useState(true)
-
+  
+  const emailSvg = ( <svg className={formTwoLoading?"animate-bounce":""} width="40" height="31" viewBox="0 0 40 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="1" y="1" width="38" height="28.1449" rx="4" stroke="white" strokeWidth="2"/>
+  <path d="M6.03653 5.76294L19.7102 18.2608" stroke="white" strokeWidth="2" strokeLinecap="round"/>
+  <path d="M33.6232 5.79709L19.7411 18.2458" stroke="white" strokeWidth="2" strokeLinecap="round"/>
+  <line x1="6.41727" y1="24.0936" x2="15.398" y2="15.6118" stroke="white" strokeWidth="2" strokeLinecap="round"/>
+  <line x1="33.3689" y1="24.9658" x2="23.8063" y2="15.9065" stroke="white" strokeWidth="2" strokeLinecap="round"/>
+</svg>)
 
   //form 0
   const [email,setEmail] = useState<string>("")
@@ -450,11 +451,12 @@ const inschrijvingPersoonForm = (inschrijving:Inschrijving,inschrijvingIndex:num
  )
 
  const submitFormulier1 = async () => {
-   //submit and send e-mail
+   setFormTwoLoading(true);
    await axios.post("/api/v0/send",{
     data:inschrijvingen,
     email:email,
    }).then((response)=>{
+    setFormTwoLoading(false);
      setEmailText(t("Inschrijving gelukt! Tot dan!"))
      setFormStep(2)
      setHeight(250)
@@ -476,9 +478,9 @@ const inschrijvingPersoonForm = (inschrijving:Inschrijving,inschrijvingIndex:num
 
    }).catch((error)=>{
     console.log(error)
+    setFormTwoLoading(false);
     setEmailText(t("Er was iets misgelopen. stuur een mail naar karel@karel.be"))
     setFormStep(2)
-    setHeight(250)
    })
    
  }
