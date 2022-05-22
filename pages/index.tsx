@@ -159,8 +159,8 @@ const Home: NextPage = () => {
         let inschrijvingenNew : Inschrijving[] = [{
           avond:false,
           lactoseVrij:false,
-          voornaam:"",
-          achternaam:"",
+          voornaam:regName,
+          achternaam:regSurName,
           receptie:false,
           vegan:false,
           vegetarisch:false,
