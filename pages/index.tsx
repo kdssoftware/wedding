@@ -500,7 +500,7 @@ const inschrijvingPersoonForm = (inschrijving:Inschrijving,inschrijvingIndex:num
     switch (page) {
       case t("RSVP"):
         return (
-          <div className="text-center text-2xl " >
+          <div className="text-center text-2xl" >
             <h2 className="text-5xl underline pb-3">
               {showRSVP && t("RSVP")}
             </h2>
@@ -577,7 +577,7 @@ const inschrijvingPersoonForm = (inschrijving:Inschrijving,inschrijvingIndex:num
         <button onClick={()=>{
           setNewPage("main")
         }}>
-          <h1 className='text-white font-font9 text-maxxl not-not-italic text-center w-screen shadow-black py-5' >
+          <h1 className='text-white font-font9 sm:text-maxxl text-9xl not-not-italic text-center w-screen shadow-black py-5' >
             {showTK && <span>
               T<span className='font-symbol'>&</span>K
               </span>}
@@ -601,14 +601,14 @@ const inschrijvingPersoonForm = (inschrijving:Inschrijving,inschrijvingIndex:num
             {viewPage(page) }
           </div>
         </div>
-        <nav className="h-12 bottom-0 bg-olive-300 bg-opacity-40 grid grid-cols-3 gap-2 justify-center text-center ">
+        <nav className="h-12 bottom-0 bg-olive-300 bg-opacity-40 grid grid-cols-3 gap-2 justify-center text-center pl-1 sm:pl-0">
           {
               [
                   t("Planning"),
                   t("RSVP"),
                   t("Tips")
               ].map( (title, key) => (
-                  <div className="text-4xl text-white cursor-pointer hover:scale-125 transition-all" onClick={()=>{
+                  <div className="align-middle py-2 md:py-0 h-full text-2xl sm:text-3xl md:text-4xl text-white cursor-pointer hover:scale-125 transition-all" onClick={()=>{
                     
                     setNewPage(title)
                   }} key={key}>
