@@ -560,7 +560,7 @@ const inschrijvingPersoonForm = (inschrijving:Inschrijving,inschrijvingIndex:num
             <h2 className='text-6xl text-center'>{t("Welkom!")}</h2>
               <hr />
               <p className='text-4xl text-center'>
-                {t("Wij gaan trouwen op")} <span className={'font-font9 not-not-italic text-5xl font-bold'}>{t("13 augustus")}</span>
+                {t("Wij gaan trouwen op")} <span className={'font-font9 not-not-italic text-5xl font-bold'}>{t("13 augustus 2022")}</span>
               </p>    
         </div>  
           )
