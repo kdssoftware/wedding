@@ -8,6 +8,7 @@ import { useTranslation } from 'next-i18next';
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import {useWindowSize} from 'react-use';
+import Head from 'next/head'
 
 const Home: NextPage = () => {
   const {width:widthW, width:heightW} = useWindowSize();
@@ -574,6 +575,7 @@ const inschrijvingPersoonForm = (inschrijving:Inschrijving,inschrijvingIndex:num
 
   return (
     <>
+    <Head><title>Tosia & Karel </title></Head>
       <div className='font-font9 not-italic [text-shadow:0_4px_8px_rgba(0,0,0,0.65)]'>
         <button onClick={()=>{
           setNewPage("main")
