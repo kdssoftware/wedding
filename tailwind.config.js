@@ -29,7 +29,7 @@ module.exports = {
         'font7': ['Junge', 'serif'],
         'font8': ['Baloo Tammudu 2', 'cursive'],
         'font9': ['Forum', 'cursive'],
-        
+        'google':["Noto Sans Display","sans-serif" ],
         'symbol': ['Alex Brush','cursive'],
       },
       fontSize: {

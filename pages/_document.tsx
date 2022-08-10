@@ -12,6 +12,8 @@ export default function Document() {
         <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap" rel="stylesheet"></link>
         <link href="https://fonts.googleapis.com/css2?family=Bentham&family=Gilda+Display&family=Junge&family=Noto+Serif+JP:wght@200;300;400;500;600;700;900&family=Suravaram&display=swap" rel="stylesheet"/>
         <link href="https://fonts.googleapis.com/css2?family=Baloo+Tammudu+2&family=Forum&family=Nixie+One&family=Suravaram&display=swap" rel="stylesheet"></link>
+        <link href="https://db.onlinewebfonts.com/c/34dbcc4a950937fdbae2d1702309c5c6?family=Google+Sans+Display" rel="stylesheet" type="text/css"/>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600&display=swap" rel="stylesheet"></link>
       </Head>
       <body>
         <Main />

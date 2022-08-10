@@ -9,6 +9,8 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import {useWindowSize} from 'react-use';
 import Head from 'next/head'
+import GooglePhotos from '../components/Googlephotos'
+import moment from "moment"
 
 const Home: NextPage = () => {
   const {width:widthW, width:heightW} = useWindowSize();
@@ -560,9 +562,23 @@ const inschrijvingPersoonForm = (inschrijving:Inschrijving,inschrijvingIndex:num
           <div>
             <h2 className='text-6xl text-center'>{t("Welkom!")}</h2>
               <hr />
-              <p className='text-4xl text-center'>
-                {t("Wij gaan trouwen op")} <span className={'font-font9 not-not-italic text-5xl font-bold'}>{t("13 augustus 2022")}</span>
+              <p className='text-4xl text-center my-4'>
+                { 
+                moment(new Date()).isAfter(moment("2022-08-12"), "day")  ?
+                    t("Wij zijn getrouwd op")+" " :
+                    t("Wij gaan trouwen op")+" "
+                  }
+                <span className={'font-font9 not-not-italic text-5xl font-bold'}>{t("13 augustus 2022")}</span>
               </p>    
+              {
+               moment(new Date()).isAfter(moment("2022-08-12"), "day")  &&
+               ( <div>
+                <hr />
+                 <div className='my-4'>
+                 <GooglePhotos link={Buffer.from("aHR0cHM6Ly9waG90b3MuYXBwLmdvby5nbC9lMlFFdlpuREhZamZpWkRvOQ==","base64").toString()} />
+                 </div>
+               </div>)
+              }
         </div>  
           )
       case "":
