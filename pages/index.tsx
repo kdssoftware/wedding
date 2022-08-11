@@ -568,13 +568,13 @@ const inschrijvingPersoonForm = (inschrijving:Inschrijving,inschrijvingIndex:num
                     t("Wij zijn getrouwd op")+" " :
                     t("Wij gaan trouwen op")+" "
                   }
-                <span className={'text-[#4e4c4c] font-font9 not-not-italic text-5xl font-bold'}>{t("13 augustus 2022")}</span>
+                <span className={'font-font9 not-not-italic text-5xl font-bold'}>{t("13 augustus 2022")}</span>
               </p>    
               {
                moment(new Date()).isAfter(moment("2022-08-12"), "day")  &&
                ( <div>
                 <hr />
-                 <div className='my-4'>
+                 <div className='my-4 text-[#4e4c4c] '>
                  <GooglePhotos link={Buffer.from("aHR0cHM6Ly9waG90b3MuYXBwLmdvby5nbC9lMlFFdlpuREhZamZpWkRvOQ==","base64").toString()} />
                  </div>
                </div>)
