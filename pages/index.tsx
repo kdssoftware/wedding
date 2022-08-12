@@ -44,6 +44,17 @@ const Home: NextPage = () => {
   const [regName,setRegName] = useState<string>("")
   const [regSurName,setRegSurName] = useState<string>("")
 
+  const spotifyIframe = (
+    <iframe 
+    style={{borderRadius:12}}
+    src="https://open.spotify.com/embed/playlist/38nMnMVU3MLK5MKTc6HucS?utm_source=generator" 
+    width="100%"
+    height="80"
+    frameBorder={0}
+    allowFullScreen={false} 
+    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+    ></iframe>)
+
 
   const setNewPage = async (page :string) => {
     setTimeout(()=>{
@@ -574,9 +585,15 @@ const inschrijvingPersoonForm = (inschrijving:Inschrijving,inschrijvingIndex:num
                moment(new Date()).isAfter(moment("2022-08-12"), "day")  &&
                ( <div>
                 <hr />
-                 <div className='my-4 text-[#4e4c4c] '>
+                <span className='w-full flex pt-2 justify-center text-xl'>{t("Deel je foto's met ons")}:</span>
+                 <div className='my-2 text-[#4e4c4c] '>
                  <GooglePhotos link={Buffer.from("aHR0cHM6Ly9waG90b3MuYXBwLmdvby5nbC9lMlFFdlpuREhZamZpWkRvOQ==","base64").toString()} />
                  </div>
+                 <span className='w-full flex justify-center text-xl pt-4'>{t("Onze receptie playlist")}:</span>
+                 <div className=' flex justify-center flex-row'>
+                    
+                  <div className='xl:w-1/4 my-1 lg:w-1/3 sm:w-1/2 w-full '>{spotifyIframe}</div>
+                  </div>
                </div>)
               }
         </div>  
