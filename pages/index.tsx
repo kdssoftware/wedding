@@ -568,7 +568,7 @@ const inschrijvingPersoonForm = (inschrijving:Inschrijving,inschrijvingIndex:num
                     t("Wij zijn getrouwd op")+" " :
                     t("Wij gaan trouwen op")+" "
                   }
-                <span className={'font-font9 not-not-italic text-5xl font-bold'}>{t("13 augustus 2022")}</span>
+                <span className={'text-[#4e4c4c] font-font9 not-not-italic text-5xl font-bold'}>{t("13 augustus 2022")}</span>
               </p>    
               {
                moment(new Date()).isAfter(moment("2022-08-12"), "day")  &&
