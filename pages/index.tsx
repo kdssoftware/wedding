@@ -586,9 +586,9 @@ const inschrijvingPersoonForm = (inschrijving:Inschrijving,inschrijvingIndex:num
                ( <div>
                 <hr />
                 <span className='w-full flex pt-2 justify-center text-xl'>{t("Deel je foto's met ons")}:</span>
-                 <div className='my-2 text-[#4e4c4c] '>
+<!--                  <div className='my-2 text-[#4e4c4c] '>
                  <GooglePhotos link={Buffer.from("aHR0cHM6Ly9waG90b3MuYXBwLmdvby5nbC9lMlFFdlpuREhZamZpWkRvOQ==","base64").toString()} />
-                 </div>
+                 </div> -->
                  <span className='w-full flex justify-center text-xl pt-4'>{t("Onze receptie playlist")}:</span>
                  <div className=' flex justify-center flex-row'>
                     
